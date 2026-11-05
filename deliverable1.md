@@ -36,7 +36,7 @@ erDiagram
     }
 
     Conference {
-        TEXT conference_id
+        **PK** conference_id
         TEXT title
         INTEGER capacity
         DATE start_date
