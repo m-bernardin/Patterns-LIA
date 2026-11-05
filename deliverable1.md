@@ -20,7 +20,7 @@ erDiagram
 
     User {
         **PK** user_id
-        TEXT fname
+        TEXT full_name
         TEXT email
         INTEGER age
         TEXT password
