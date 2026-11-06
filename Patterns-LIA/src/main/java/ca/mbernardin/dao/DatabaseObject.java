@@ -10,8 +10,8 @@ import java.sql.Connection;
  * DatabaseObject
  */
 public abstract class DatabaseObject {
-    private String target="jdbc:sqlite:/src/main/java/model/database/database.db";
-    protected ResultSet executeQuery(PreparedStatement query){
+    private static String target="jdbc:sqlite:/src/main/java/model/database/database.db";
+    protected static ResultSet executeQuery(PreparedStatement query){
         try(Connection connection=DriverManager.getConnection(target)){
                 return query.executeQuery();
         }
@@ -20,7 +20,7 @@ public abstract class DatabaseObject {
             return null;
         }
     }
-    protected boolean executeUpdate(PreparedStatement update){
+    protected static boolean executeUpdate(PreparedStatement update){
         try(Connection connection=DriverManager.getConnection(target)){
             update.executeUpdate();
             return true;
