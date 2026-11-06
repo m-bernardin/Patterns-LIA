@@ -2,6 +2,7 @@
 ## Project Features
 
 ## User Interface Plan
+<img width="1040" height="811" alt="IMG_0362" src="https://github.com/user-attachments/assets/02bd5ce4-ce4b-4814-a72f-6c2471a072b5" />
 
 ## Team Members and Responsibilites
 | Name | Features |
