@@ -3,13 +3,14 @@
 ## Project Features
 
 ## User Interface Plan
-<img width="1040" height="811" alt="IMG_0362" src="https://github.com/user-attachments/assets/02bd5ce4-ce4b-4814-a72f-6c2471a072b5" />
-<img width="1029" height="894" alt="IMG_0363" src="https://github.com/user-attachments/assets/52ffb8c1-5170-45ea-bc08-20577f2fdb44" /><img width="698" height="884" alt="IMG_0371" src="https://github.com/user-attachments/assets/e4880f96-76f3-46cd-8013-e0a38bb0f2f3" />
-<img width="1240" height="1365" alt="IMG_0369" src="https://github.com/user-attachments/assets/7af615ad-75ca-4711-be9b-957495b34521" />
-<img width="1115" height="932" alt="IMG_0364" src="https://github.com/user-attachments/assets/156813ef-de9e-45e9-bcc6-4553ae798efe" />
-<img width="963" height="763" alt="IMG_0375" src="https://github.com/user-attachments/assets/4c183aca-db5c-4c77-bb5e-5fef218b0f85" />
-<img width="1110" height="986" alt="IMG_0366" src="https://github.com/user-attachments/assets/cad2f07d-3363-476d-a025-5929e674020f" />
-<img width="1166" height="746" alt="IMG_0374" src="https://github.com/user-attachments/assets/54b6c73b-19e0-42f0-82db-172c6987394e" />
+<img width="350" alt="Login Window" src="https://github.com/user-attachments/assets/02bd5ce4-ce4b-4814-a72f-6c2471a072b5" />
+<img width="350" alt="Sign Up Window" src="https://github.com/user-attachments/assets/52ffb8c1-5170-45ea-bc08-20577f2fdb44" />
+<img width="350" alt="Administrator Panel" src="https://github.com/user-attachments/assets/e4880f96-76f3-46cd-8013-e0a38bb0f2f3" />
+<img width="350" alt="Create/Edit Conference" src="https://github.com/user-attachments/assets/7af615ad-75ca-4711-be9b-957495b34521" />
+<img width="350" alt="Participant Panel" src="https://github.com/user-attachments/assets/156813ef-de9e-45e9-bcc6-4553ae798efe" />
+<img width="350" alt="My Subscriptions" src="https://github.com/user-attachments/assets/4c183aca-db5c-4c77-bb5e-5fef218b0f85" />
+<img width="350" alt="My Profile" src="https://github.com/user-attachments/assets/cad2f07d-3363-476d-a025-5929e674020f" />
+<img width="350" alt="Administrative Reports" src="https://github.com/user-attachments/assets/54b6c73b-19e0-42f0-82db-172c6987394e" />
 
 ## Team Members and Responsibilites
 | Name | Features |
