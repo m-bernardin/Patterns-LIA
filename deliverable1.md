@@ -3,8 +3,6 @@
 ## Project Features
 
 ## User Interface Plan
-
-## User Interface Plan
 ### 1. Login Window
 <p align="center">
   <img src="https://github.com/user-attachments/assets/02bd5ce4-ce4b-4814-a72f-6c2471a072b5" width="400">
@@ -15,7 +13,7 @@
   <img src="https://github.com/user-attachments/assets/52ffb8c1-5170-45ea-bc08-20577f2fdb44" width="400">
 </p>
 
-### 3. Administrator Panel
+### 3. My Profile
 <p align="center">
   <img src="https://github.com/user-attachments/assets/e4880f96-76f3-46cd-8013-e0a38bb0f2f3" width="400">
 </p>
@@ -25,7 +23,7 @@
   <img src="https://github.com/user-attachments/assets/7af615ad-75ca-4711-be9b-957495b34521" width="400">
 </p>
 
-### 5. Participant Panel
+### 5.Administrator Panel 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/156813ef-de9e-45e9-bcc6-4553ae798efe" width="400">
 </p>
@@ -35,7 +33,7 @@
   <img src="https://github.com/user-attachments/assets/4c183aca-db5c-4c77-bb5e-5fef218b0f85" width="400">
 </p>
 
-### 7. My Profile
+### 7. Participant Panel
 <p align="center">
   <img src="https://github.com/user-attachments/assets/cad2f07d-3363-476d-a025-5929e674020f" width="400">
 </p>
@@ -49,6 +47,7 @@
 | Name | Features |
 | --- | --- |
 | Mathieu Bernardin | |
+| Manal Fayyaz | |
 
 ## User Stories
 ### User Account and Login:
