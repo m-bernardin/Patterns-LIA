@@ -57,7 +57,7 @@ public class ConferenceDatabaseAccessObject extends DatabaseAccessObject{
             return null;
         }
     }
-    public static void create(String title,int capacity,Date start_date,Date end_date,String location){
+    public static boolean create(String title,int capacity,Date start_date,Date end_date,String location){
         try(Connection connection=DriverManager.getConnection(target);
             PreparedStatement inserter=connection.prepareStatement("INSERT INTO Conference VALUES(?,?,?,?,?);");){
                 inserter.setString(1,title);
@@ -66,74 +66,88 @@ public class ConferenceDatabaseAccessObject extends DatabaseAccessObject{
                 inserter.setDate(4,end_date);
                 inserter.setString(5,location);
                 inserter.executeUpdate();
+                return true;
         }
         catch(SQLException e){
             Logger.logSQL(e);
+            return false;
         }
     }
-    public static void removeById(int conference_id){
+    public static boolean removeById(int conference_id){
         try(Connection connection=DriverManager.getConnection(target);
             PreparedStatement remover=connection.prepareStatement("DELETE FROM Conference WHERE conference_id=?;");){
                 remover.setInt(1,conference_id);
                 remover.executeUpdate();
+                return true;
         }
         catch(SQLException e){
             Logger.logSQL(e);
+            return false;
         }
     }
-    public static void updateTitle(int conference_id,String title){
+    public static boolean updateTitle(int conference_id,String title){
         try(Connection connection=DriverManager.getConnection(target);
             PreparedStatement updater=connection.prepareStatement("UPDATE Conference SET title=? WHERE conference_id=?;");){
                 updater.setString(1,title);
                 updater.setInt(2,conference_id);
                 updater.executeUpdate();
+                return true;
         }
         catch(SQLException e){
             Logger.logSQL(e);
+            return false;
         }
     }
-    public static void updateCapacity(int conference_id,int capacity){
+    public static boolean updateCapacity(int conference_id,int capacity){
         try(Connection connection=DriverManager.getConnection(target);
             PreparedStatement updater=connection.prepareStatement("UPDATE Conference SET capacity=? WHERE conference_id=?;");){
                 updater.setInt(1,capacity);
                 updater.setInt(2,conference_id);
                 updater.executeUpdate();
+                return true;
         }
         catch(SQLException e){
             Logger.logSQL(e);
+            return false;
         }
     }
-    public static void updateStartDate(int conference_id,Date start_date){
+    public static boolean updateStartDate(int conference_id,Date start_date){
         try(Connection connection=DriverManager.getConnection(target);
             PreparedStatement updater=connection.prepareStatement("UPDATE Conference SET start_date=? WHERE conference_id=?;");){
                 updater.setDate(1,start_date);
                 updater.setInt(2,conference_id);
                 updater.executeUpdate();
+                return true;
         }
         catch(SQLException e){
             Logger.logSQL(e);
+            return false;
         }
     }
-    public static void updateEndDate(int conference_id,Date end_date){
+    public static boolean updateEndDate(int conference_id,Date end_date){
         try(Connection connection=DriverManager.getConnection(target);
             PreparedStatement updater=connection.prepareStatement("UPDATE Conference SET end_date=? WHERE conference_id=?;");){
                 updater.setDate(1,end_date);
                 updater.setInt(2,conference_id);
                 updater.executeUpdate();
+                return true;
         }
         catch(SQLException e){
             Logger.logSQL(e);
+            return false;
         }
     }
-    public static void updateLocation(int conference_id,String location){
+    public static boolean updateLocation(int conference_id,String location){
         try(Connection connection=DriverManager.getConnection(target);
             PreparedStatement updater=connection.prepareStatement("UPDATE Conference SET location=? WHERE conference_id=?;");){
                 updater.setString(1,location);
                 updater.setInt(2,conference_id);
                 updater.executeUpdate();
+                return true;
         }
         catch(SQLException e){
             Logger.logSQL(e);
+            return false;
         }
     }
 }
