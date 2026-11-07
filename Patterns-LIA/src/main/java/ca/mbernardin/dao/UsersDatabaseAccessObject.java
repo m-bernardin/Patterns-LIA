@@ -56,10 +56,8 @@ public class UsersDatabaseAccessObject extends DatabaseAccessObject{
     // TODO maybe this should be though a procedure?
     public static void removeById(int id){
         try(Connection connection=DriverManager.getConnection(target);
-            PreparedStatement userTableRemover=connection.prepareStatement("DELETE FROM User WHERE user_id=?;");
-            PreparedStatement passwordTableRemover=connection.prepareStatement("DELETE FROM Password WHERE user_id=?;");){
+            PreparedStatement userTableRemover=connection.prepareStatement("DELETE FROM User WHERE user_id=?;");){
                 userTableRemover.setInt(1,id);
-                passwordTableRemover.setInt(1,id);
                 userTableRemover.executeUpdate();
         }
         catch(SQLException e){
