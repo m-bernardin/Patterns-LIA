@@ -95,7 +95,7 @@ public class ConferenceDatabaseAccessObject extends DatabaseAccessObject{
     public static void updateCapacity(int conference_id,int capacity){
         try(Connection connection=DriverManager.getConnection(target);
             PreparedStatement updater=connection.prepareStatement("UPDATE Conference SET capacity=? WHERE conference_id=?;");){
-                updater.setString(1,capacity);
+                updater.setInt(1,capacity);
                 updater.setInt(2,conference_id);
                 updater.executeUpdate();
         }
