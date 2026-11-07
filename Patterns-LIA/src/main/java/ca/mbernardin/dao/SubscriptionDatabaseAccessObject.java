@@ -41,7 +41,7 @@ public class SubscriptionDatabaseAccessObject extends DatabaseAccessObject{
             return null;
         }
     }
-    public static void create(int user_id,int conference_id,boolean waitinglist_status,Date waitinglist_position){
+    public static boolean create(int user_id,int conference_id,boolean waitinglist_status,Date waitinglist_position){
         try(Connection connection=DriverManager.getConnection(target);
             PreparedStatement inserter=connection.prepareStatement("INSERT INTO Subscription VALUES(?,?,?,?);");){
                 inserter.setInt(1,user_id);
@@ -49,31 +49,37 @@ public class SubscriptionDatabaseAccessObject extends DatabaseAccessObject{
                 inserter.setString(3,waitinglist_status+"");
                 inserter.setDate(4,waitinglist_position);
                 inserter.executeUpdate();
+                return true;
         }
         catch(SQLException e){
             Logger.logSQL(e);
+            return false;
         }
     }
-    public static void remove(int user_id,int conference_id){
+    public static boolean remove(int user_id,int conference_id){
         try(Connection connection=DriverManager.getConnection(target);
             PreparedStatement remover=connection.prepareStatement("DELETE FROM Subscription WHERE user_id=? AND conference_id=?;");){
                 remover.setInt(1,user_id);
                 remover.setInt(2,conference_id);
                 remover.executeUpdate();
+                return true;
         }
         catch(SQLException e){
             Logger.logSQL(e);
+            return false;
         }
     }
-    public static void removeFromWaitingList(int user_id,int conference_id){
+    public static boolean removeFromWaitingList(int user_id,int conference_id){
         try(Connection connection=DriverManager.getConnection(target);
             PreparedStatement updater=connection.prepareStatement("UPDATE Subscription SET waitinglist_status='False' WHERE user_id=? AND conference_id=?;");){
                 updater.setInt(1,user_id);
                 updater.setInt(2,conference_id);
                 updater.executeUpdate();
+                return true;
         }
         catch(SQLException e){
             Logger.logSQL(e);
+            return false;
         }
     }
     public static Set<Conference> getSubscriptions(int user_id){
