@@ -86,26 +86,32 @@ erDiagram
 
     User ||--O{ Subscription : submits
     Subscription }O--|| Conference : has
+    User ||--|| Credentials : contains
+
+    Credentials {
+        INTEGER credential_id PK
+        INTEGER user_id FK
+        TEXT password_hash
+    }
 
     User {
-        **PK** user_id
+        INTEGER user_id PK
         TEXT full_name
         TEXT email
         INTEGER age
-        TEXT password
         TEXT usertype
-        
     }
 
     Subscription {
-        **PK** subscription_id
-        **FK** user_id
-        **FK** conference_id
-        TEXT isOnWaitingList
+        INTEGER subscription_id PK
+        INTEGER user_id FK
+        INTEGER conference_id FK
+        TEXT waitinglist_status
+        DATE waitinglist_position
     }
 
     Conference {
-        **PK** conference_id
+        INTEGER conference_id PK
         TEXT title
         INTEGER capacity
         DATE start_date
