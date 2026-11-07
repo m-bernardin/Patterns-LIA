@@ -53,7 +53,6 @@ public class UsersDatabaseAccessObject extends DatabaseAccessObject{
             return null;
         }
     }
-    // TODO maybe this should be though a procedure?
     public static void removeById(int id){
         try(Connection connection=DriverManager.getConnection(target);
             PreparedStatement userTableRemover=connection.prepareStatement("DELETE FROM User WHERE user_id=?;");){
@@ -64,7 +63,6 @@ public class UsersDatabaseAccessObject extends DatabaseAccessObject{
             Logger.logSQL(e);
         }
     }
-    // TODO this should be a procedure too maybe?
     public static void create(String full_name,String email,int age,String hashedPassword){
         try(Connection connection=DriverManager.getConnection(target);
             PreparedStatement inserter=connection.prepareStatement("INSERT INTO User VALUES(?,?,?,'Participant');");){
@@ -72,11 +70,11 @@ public class UsersDatabaseAccessObject extends DatabaseAccessObject{
                 inserter.setString(2,email);
                 inserter.setInt(3,age);
                 inserter.executeUpdate();
+                PasswordDatabaseAccessObject.create(getIdByEmail(email),hashedPassword);
         }
         catch(SQLException e){
             Logger.logSQL(e);
         }
-        // TODO code to insert new password (with call to passwordDAO)
     }
     public static int getIdByEmail(String email){
         try(Connection connection=DriverManager.getConnection(target);
