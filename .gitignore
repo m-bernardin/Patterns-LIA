@@ -4,6 +4,7 @@
 *.db
 # log files
 *.log
+*.lst
 # archives
 *.jar
 *.war
