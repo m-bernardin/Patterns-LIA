@@ -1,6 +1,43 @@
-
-# Deliverable 1 Documents
+# Deliverable 1 Document
 ## Project Features
+- Persistent user information
+- Hashed user passwords
+- Password and email format verification on registration/update
+- Extensive test suite
+- Localized interface
+- Sensible checks on real values (e.g. conference capacity cannot be set to a value less than 1)
+- Rejection of overlaping registrations
+- Conference waiting list in case of a conference's registrations surpassing its capacity, ordered by attempted registration time
+- User dashboard displaying:
+    - Available conferences with all relevant information
+    - Allowing:
+        - Users to register for conferences
+        - Users to update personal information
+        - Users to view registered conferences dashboard
+- User conference dashboard allowing:
+    - Users to browse registered conferences
+    - Cancel conference registrations
+- Admin dashboard allowing the admin to:
+    - Create conferences
+    - Update conference information
+    - Delete irrelevant conferences, assuming:
+        - No users are actively registerd, or
+        - The conference end date has passed
+    - View conference reports detailing:
+        - Capacity
+        - Registered users
+        - Waiting list size
+    - View user reports detailing:
+        - Personal information (not password)
+        - Registered  conferences
+
+This project is a model of a conference managment and registration system, written in Java 27. Project dependency is managed thorugh Apache Maven. This project uses a local SQLite database for storing data. The local database is interfaced with through four database access objects (DAO), using sqlite-jdbc version 3.53.4.0. For its graphical user interface (GUI), the project implements JavaFX version 27. The project follows Model-View-Controller (MVC) principles to organize its classes. This means that user input flows from the view (the GUI) down to the controller, which interpretes user input then calls on model methods to perform logical operations. The results of these logical operations are then reflected by changes in the view. In some instances, these logical operations require interactions with the project's local SQLite database; in which case, relevant DAO methods are called to perform these operations within the database itself.
+
+The local SQLite database stores all information regarding users and conferences. This includes, but is not limited to:
+- User personal information
+- Conference timing and location information
+- User registrations to conferences
+For more details, please refer to the entity relationship (ER) diagram at the end of this document.
 
 ## User Interface Plan
 ### 1. Login Window
@@ -44,10 +81,13 @@
 </p>
 
 ## Team Members and Responsibilites
-| Name | Features |
-| --- | --- |
-| Mathieu Bernardin | |
-| Manal Fayyaz | |
+
+| Feature | Mathieu Bernardin | Manal Fayyaz | Mohammad Al Mousa |
+| --- | --- | --- | --- |
+| featureName | | | |
+| Database Access Objects | x | | |
+
+
 
 ## User Stories
 ### User Account and Login:
