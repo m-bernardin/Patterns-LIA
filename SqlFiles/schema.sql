@@ -1,19 +1,19 @@
-CREATE TABLE Credentials (
-    credential_id INTEGER,
-    password_hash TEXT NOT NULL,
-    CONSTRAINT PK_Credentials PRIMARY KEY (credential_id AUTOINCREMENT)
-);
-
 CREATE TABLE User (
     user_id INTEGER,
-    credential_id INTEGER,
     full_name TEXT NOT NULL,
     email TEXT NOT NULL,
     age INTEGER NOT NULL CHECK (age > 0),
     usertype TEXT NOT NULL,
     CONSTRAINT PK_User PRIMARY KEY (user_id AUTOINCREMENT),
-    CONSTRAINT FK_User_Credentials FOREIGN KEY (credential_id) REFERENCES Credentials(credential_id) ON DELETE CASCADE,
     CONSTRAINT UNIQUE_User_Email UNIQUE (email)
+);
+
+CREATE TABLE Credentials (
+    credential_id INTEGER,
+    user_id INTEGER,
+    password_hash TEXT NOT NULL,
+    CONSTRAINT PK_Credentials PRIMARY KEY (credential_id AUTOINCREMENT),
+    CONSTRAINT FK_User_Credentials FOREIGN KEY (user_id) REFERENCES User(user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Conference (
@@ -31,7 +31,7 @@ CREATE TABLE Subscription (
     user_id INTEGER NOT NULL,
     conference_id INTEGER NOT NULL,
     waitinglist_status TEXT NOT NULL,
-    waitinglist_position INTEGER NOT NULL,
+    waitinglist_position DATE NOT NULL,
     CONSTRAINT PK_Subscription PRIMARY KEY (subscription_id AUTOINCREMENT),
     CONSTRAINT FK_Subscription_User FOREIGN KEY (user_id) REFERENCES User(user_id) ON DELETE CASCADE,
     CONSTRAINT FK_Subscription_Conference FOREIGN KEY (conference_id) REFERENCES Conference(conference_id) ON DELETE CASCADE
