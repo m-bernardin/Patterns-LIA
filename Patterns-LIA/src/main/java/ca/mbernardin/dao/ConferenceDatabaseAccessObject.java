@@ -11,6 +11,8 @@ import java.sql.PreparedStatement;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.sun.tools.classfile.StackMapTable_attribute.stack_map_frame;
+
 import ca.mbernardin.model.Conference;
 import ca.mbernardin.model.Logger;
 
@@ -57,4 +59,11 @@ public class ConferenceDatabaseAccessObject extends DatabaseAccessObject{
             return null;
         }
     }
+    public static void create(String title,int capacity,Date start_date,Date end_date,String location){}
+    public static void removeById(int conference_id){}
+    public static void updateTitle(int conference_id,String title){}
+    public static void updateCapacity(int conference_id,int capacity){}
+    public static void updateStartDate(int conference_id,Date start_date){}
+    public static void updateEndDate(int conference_id,Date end_date){}
+    public static void updateLocation(int conference_id,String location){}
 }
