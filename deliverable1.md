@@ -31,6 +31,14 @@
         - Personal information (not password)
         - Registered  conferences
 
+This project is a model of a conference managment and registration system, written in Java 27. Project dependency is managed thorugh Apache Maven. This project uses a local SQLite database for storing data. The local database is interfaced with through four database access objects (DAO), using sqlite-jdbc version 3.53.4.0. For its graphical user interface (GUI), the project implements JavaFX version 27. The project follows Model-View-Controller (MVC) principles to organize its classes. This means that user input flows from the view (the GUI) down to the controller, which interpretes user input then calls on model methods to perform logical operations. The results of these logical operations are then reflected by changes in the view. In some instances, these logical operations require interactions with the project's local SQLite database; in which case, relevant DAO methods are called to perform these operations within the database itself.
+
+The local SQLite database stores all information regarding users and conferences. This includes, but is not limited to:
+- User personal information
+- Conference timing and location information
+- User registrations to conferences
+For more details, please refer to the entity relationship (ER) diagram at the end of this document.
+
 ## User Interface Plan
 ### 1. Login Window
 <p align="center">
