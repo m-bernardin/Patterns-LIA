@@ -90,12 +90,12 @@ erDiagram
 
     Credentials {
         INTEGER credential_id PK
+        INTEGER user_id FK
         TEXT password_hash
     }
 
     User {
         INTEGER user_id PK
-        INTEGER credential_id FK
         TEXT full_name
         TEXT email
         INTEGER age
@@ -107,7 +107,7 @@ erDiagram
         INTEGER user_id FK
         INTEGER conference_id FK
         TEXT waitinglist_status
-        INTEGER waitinglist_position
+        DATE waitinglist_position
     }
 
     Conference {
