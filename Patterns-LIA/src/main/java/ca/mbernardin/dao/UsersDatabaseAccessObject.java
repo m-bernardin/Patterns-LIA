@@ -80,4 +80,19 @@ public class UsersDatabaseAccessObject extends DatabaseAccessObject{
         }
         // TODO code to insert new password (with call to passwordDAO)
     }
+    public static int getIdByEmail(String email){
+        try(Connection connection=DriverManager.getConnection(target);
+            PreparedStatement query=connection.prepareStatement("SELECT user_id FROM User WHERE email=?;");){
+                query.setString(1,email);
+                ResultSet results=query.executeQuery();
+                if(results.next()){
+                    return results.getInt("user_id");
+                }
+                else return -1;
+        }
+        catch(SQLException e){
+            Logger.logSQL(e);
+            return -1;
+        }
+    }
 }
