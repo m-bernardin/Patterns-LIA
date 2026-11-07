@@ -40,4 +40,15 @@ public class PasswordDatabaseAccessObject extends DatabaseAccessObject{
             Logger.logSQL(e);
         }
     }
+    public static void update(int user_id,String password_hash){
+        try(Connection connection=DriverManager.getConnection(target);
+            PreparedStatement updater=connection.prepareStatement("UPDATE Credentials SET password_hash=? WHERE user_id=?;");){
+                updater.setString(1,password_hash);
+                updater.setInt(2,user_id);
+                updater.executeUpdate();
+        }
+        catch(SQLException e){
+            Logger.logSQL(e);
+        }
+    }
 }
