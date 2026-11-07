@@ -95,4 +95,37 @@ public class UsersDatabaseAccessObject extends DatabaseAccessObject{
             return -1;
         }
     }
+    public static void updateFullName(int user_id, String full_name){
+        try(Connection connection=DriverManager.getConnection(target);
+            PreparedStatement updater=connection.prepareStatement("UPDATE User SET full_name=? WHERE user_id=?;");){
+                updater.setString(1,full_name);
+                updater.setInt(2,user_id);
+                updater.executeUpdate();
+        }
+        catch(SQLException e){
+            Logger.logSQL(e);
+        }
+    }
+    public static void updateEmail(int user_id, String email){
+        try(Connection connection=DriverManager.getConnection(target);
+            PreparedStatement updater=connection.prepareStatement("UPDATE User SET email=? WHERE user_id=?;");){
+                updater.setString(1,email);
+                updater.setInt(2,user_id);
+                updater.executeUpdate();
+        }
+        catch(SQLException e){
+            Logger.logSQL(e);
+        }
+    }
+    public static void updateAge(int user_id, int age){
+        try(Connection connection=DriverManager.getConnection(target);
+            PreparedStatement updater=connection.prepareStatement("UPDATE User SET age=? WHERE user_id=?;");){
+                updater.setInt(1,age);
+                updater.setInt(2,user_id);
+                updater.executeUpdate();
+        }
+        catch(SQLException e){
+            Logger.logSQL(e);
+        }
+    }
 }
