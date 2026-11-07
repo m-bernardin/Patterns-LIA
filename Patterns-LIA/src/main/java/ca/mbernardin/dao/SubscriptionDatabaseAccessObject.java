@@ -39,4 +39,17 @@ public class SubscriptionDatabaseAccessObject extends DatabaseAccessObject{
             return null;
         }
     }
+    public static void create(int user_id,int conference_id,boolean waiting_status,Date waitinglist_position){
+        try(Connection connection=DriverManager.getConnection(target);
+            PreparedStatement inserter=connection.prepareStatement("INSERT INTO Subscription VALUES(?,?,?,?)");){
+                inserter.setInt(1,user_id);
+                inserter.setInt(2,conference_id);
+                inserter.setString(3,waiting_status+"");
+                inserter.setDate(4,waitinglist_position);
+                inserter.executeUpdate();
+        }
+        catch(SQLException e){
+            Logger.logSQL(e);
+        }
+    }
 }
