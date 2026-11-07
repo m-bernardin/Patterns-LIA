@@ -53,27 +53,32 @@ public class UserDatabaseAccessObject extends DatabaseAccessObject{
             return null;
         }
     }
-    public static void removeById(int id){
+    public static boolean removeById(int id){
         try(Connection connection=DriverManager.getConnection(target);
             PreparedStatement userTableRemover=connection.prepareStatement("DELETE FROM User WHERE user_id=?;");){
                 userTableRemover.setInt(1,id);
                 userTableRemover.executeUpdate();
+                return true;
         }
         catch(SQLException e){
             Logger.logSQL(e);
+            return false;
         }
     }
-    public static void create(String full_name,String email,int age,String hashedPassword){
+    public static boolean create(String full_name,String email,int age,String hashedPassword){
         try(Connection connection=DriverManager.getConnection(target);
             PreparedStatement inserter=connection.prepareStatement("INSERT INTO User VALUES(?,?,?,'Participant');");){
                 inserter.setString(1,full_name);
                 inserter.setString(2,email);
                 inserter.setInt(3,age);
+                // TODO this should probably be in a procedure
                 inserter.executeUpdate();
                 PasswordDatabaseAccessObject.create(getIdByEmail(email),hashedPassword);
+                return true;
         }
         catch(SQLException e){
             Logger.logSQL(e);
+            return false;
         }
     }
     public static int getIdByEmail(String email){
@@ -91,37 +96,43 @@ public class UserDatabaseAccessObject extends DatabaseAccessObject{
             return -1;
         }
     }
-    public static void updateFullName(int user_id, String full_name){
+    public static boolean updateFullName(int user_id, String full_name){
         try(Connection connection=DriverManager.getConnection(target);
             PreparedStatement updater=connection.prepareStatement("UPDATE User SET full_name=? WHERE user_id=?;");){
                 updater.setString(1,full_name);
                 updater.setInt(2,user_id);
                 updater.executeUpdate();
+                return true;
         }
         catch(SQLException e){
             Logger.logSQL(e);
+            return false;
         }
     }
-    public static void updateEmail(int user_id, String email){
+    public static boolean updateEmail(int user_id, String email){
         try(Connection connection=DriverManager.getConnection(target);
             PreparedStatement updater=connection.prepareStatement("UPDATE User SET email=? WHERE user_id=?;");){
                 updater.setString(1,email);
                 updater.setInt(2,user_id);
                 updater.executeUpdate();
+                return true;
         }
         catch(SQLException e){
             Logger.logSQL(e);
+            return false;
         }
     }
-    public static void updateAge(int user_id, int age){
+    public static boolean updateAge(int user_id, int age){
         try(Connection connection=DriverManager.getConnection(target);
             PreparedStatement updater=connection.prepareStatement("UPDATE User SET age=? WHERE user_id=?;");){
                 updater.setInt(1,age);
                 updater.setInt(2,user_id);
                 updater.executeUpdate();
+                return true;
         }
         catch(SQLException e){
             Logger.logSQL(e);
+            return false;
         }
     }
 }
