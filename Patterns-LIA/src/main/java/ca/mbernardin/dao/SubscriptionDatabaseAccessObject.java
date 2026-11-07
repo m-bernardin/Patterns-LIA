@@ -91,4 +91,36 @@ public class SubscriptionDatabaseAccessObject extends DatabaseAccessObject{
             return null;
         }
     }
+    public static Set<Conference> getConfirmedSubscriptions(int user_id){
+        try(Connection connection=DriverManager.getConnection(target);
+            PreparedStatement query=connection.prepareStatement("SELECT * FROM Subscription WHERE user_id=? AND waitinglist_status='False");){
+                query.setInt(1,user_id);
+                ResultSet resultSet=query.executeQuery();
+                Set<Conference> subscriptions=new HashSet<>();
+                while(resultSet.next()){
+                    subscriptions.add(ConferenceDatabaseAccessObject.getById(resultSet.getInt("conference_id")));
+                }
+                return subscriptions;
+        }
+        catch(SQLException e){
+            Logger.logSQL(e);
+            return null;
+        }
+    }
+    public static Set<Conference> getWaitlistedSubscriptions(int user_id){
+        try(Connection connection=DriverManager.getConnection(target);
+            PreparedStatement query=connection.prepareStatement("SELECT * FROM Subscription WHERE user_id=? AND waitinglist_status='True");){
+                query.setInt(1,user_id);
+                ResultSet resultSet=query.executeQuery();
+                Set<Conference> subscriptions=new HashSet<>();
+                while(resultSet.next()){
+                    subscriptions.add(ConferenceDatabaseAccessObject.getById(resultSet.getInt("conference_id")));
+                }
+                return subscriptions;
+        }
+        catch(SQLException e){
+            Logger.logSQL(e);
+            return null;
+        }
+    }
 }
