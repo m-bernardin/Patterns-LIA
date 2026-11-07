@@ -71,7 +71,16 @@ public class ConferenceDatabaseAccessObject extends DatabaseAccessObject{
             Logger.logSQL(e);
         }
     }
-    public static void removeById(int conference_id){}
+    public static void removeById(int conference_id){
+        try(Connection connection=DriverManager.getConnection(target);
+            PreparedStatement remover=connection.prepareStatement("DELETE FROM Conference WHERE conference_id=?;");){
+                remover.setInt(1,conference_id);
+                remover.executeUpdate();
+        }
+        catch(SQLException e){
+            Logger.logSQL(e);
+        }
+    }
     public static void updateTitle(int conference_id,String title){}
     public static void updateCapacity(int conference_id,int capacity){}
     public static void updateStartDate(int conference_id,Date start_date){}
