@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import ca.mbernardin.model.Subscription;
+import ca.mbernardin.model.User;
 import ca.mbernardin.model.Conference;
 import ca.mbernardin.model.Logger;
 
@@ -77,7 +78,7 @@ public class SubscriptionDatabaseAccessObject extends DatabaseAccessObject{
     }
     public static Set<Conference> getSubscriptions(int user_id){
         try(Connection connection=DriverManager.getConnection(target);
-            PreparedStatement query=connection.prepareStatement("SELECT * FROM Subscription WHERE user_id=?");){
+            PreparedStatement query=connection.prepareStatement("SELECT * FROM Subscription WHERE user_id=?;");){
                 query.setInt(1,user_id);
                 ResultSet resultSet=query.executeQuery();
                 Set<Conference> subscriptions=new HashSet<>();
@@ -93,7 +94,7 @@ public class SubscriptionDatabaseAccessObject extends DatabaseAccessObject{
     }
     public static Set<Conference> getConfirmedSubscriptions(int user_id){
         try(Connection connection=DriverManager.getConnection(target);
-            PreparedStatement query=connection.prepareStatement("SELECT * FROM Subscription WHERE user_id=? AND waitinglist_status='False");){
+            PreparedStatement query=connection.prepareStatement("SELECT * FROM Subscription WHERE user_id=? AND waitinglist_status='False';");){
                 query.setInt(1,user_id);
                 ResultSet resultSet=query.executeQuery();
                 Set<Conference> subscriptions=new HashSet<>();
@@ -109,7 +110,7 @@ public class SubscriptionDatabaseAccessObject extends DatabaseAccessObject{
     }
     public static Set<Conference> getWaitlistedSubscriptions(int user_id){
         try(Connection connection=DriverManager.getConnection(target);
-            PreparedStatement query=connection.prepareStatement("SELECT * FROM Subscription WHERE user_id=? AND waitinglist_status='True");){
+            PreparedStatement query=connection.prepareStatement("SELECT * FROM Subscription WHERE user_id=? AND waitinglist_status='True';");){
                 query.setInt(1,user_id);
                 ResultSet resultSet=query.executeQuery();
                 Set<Conference> subscriptions=new HashSet<>();
@@ -117,6 +118,23 @@ public class SubscriptionDatabaseAccessObject extends DatabaseAccessObject{
                     subscriptions.add(ConferenceDatabaseAccessObject.getById(resultSet.getInt("conference_id")));
                 }
                 return subscriptions;
+        }
+        catch(SQLException e){
+            Logger.logSQL(e);
+            return null;
+        }
+    }
+    // Not sure any of these are actually useful
+    public static Set<User> getSubscribers(int conference_id){
+        try(Connection connection=DriverManager.getConnection(target);
+            PreparedStatement query=connection.prepareStatement("SELECT * FROM Subscription WHERE conference_id=?;");){
+                query.setInt(1,conference_id);
+                ResultSet resultSet=query.executeQuery();
+                Set<User> subscribers=new HashSet<>();
+                while(resultSet.next()){
+                    subscribers.add(UsersDatabaseAccessObject.getById(resultSet.getInt("user_id")));
+                }
+                return subscribers;
         }
         catch(SQLException e){
             Logger.logSQL(e);
