@@ -81,8 +81,28 @@ public class ConferenceDatabaseAccessObject extends DatabaseAccessObject{
             Logger.logSQL(e);
         }
     }
-    public static void updateTitle(int conference_id,String title){}
-    public static void updateCapacity(int conference_id,int capacity){}
+    public static void updateTitle(int conference_id,String title){
+        try(Connection connection=DriverManager.getConnection(target);
+            PreparedStatement updater=connection.prepareStatement("UPDATE Conference SET title=? WHERE conference_id=?;");){
+                updater.setString(1,title);
+                updater.setInt(2,conference_id);
+                updater.executeUpdate();
+        }
+        catch(SQLException e){
+            Logger.logSQL(e);
+        }
+    }
+    public static void updateCapacity(int conference_id,int capacity){
+        try(Connection connection=DriverManager.getConnection(target);
+            PreparedStatement updater=connection.prepareStatement("UPDATE Conference SET capacity=? WHERE conference_id=?;");){
+                updater.setString(1,capacity);
+                updater.setInt(2,conference_id);
+                updater.executeUpdate();
+        }
+        catch(SQLException e){
+            Logger.logSQL(e);
+        }
+    }
     public static void updateStartDate(int conference_id,Date start_date){}
     public static void updateEndDate(int conference_id,Date end_date){}
     public static void updateLocation(int conference_id,String location){}
