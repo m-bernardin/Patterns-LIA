@@ -53,4 +53,31 @@ public class UsersDatabaseAccessObject extends DatabaseAccessObject{
             return null;
         }
     }
+    // TODO maybe this should be though a procedure?
+    public static void removeById(int id){
+        try(Connection connection=DriverManager.getConnection(target);
+            PreparedStatement userTableRemover=connection.prepareStatement("DELETE FROM User WHERE user_id=?;");
+            PreparedStatement passwordTableRemover=connection.prepareStatement("DELETE FROM Password WHERE user_id=?;");){
+                userTableRemover.setInt(1,id);
+                passwordTableRemover.setInt(1,id);
+                userTableRemover.executeUpdate();
+        }
+        catch(SQLException e){
+            Logger.logSQL(e);
+        }
+    }
+    // TODO this should be a procedure too maybe?
+    public static void create(String full_name,String email,int age,String hashedPassword){
+        try(Connection connection=DriverManager.getConnection(target);
+            PreparedStatement inserter=connection.prepareStatement("INSERT INTO User VALUES(?,?,?,'Participant');");){
+                inserter.setString(1,full_name);
+                inserter.setString(2,email);
+                inserter.setInt(3,age);
+                inserter.executeUpdate();
+        }
+        catch(SQLException e){
+            Logger.logSQL(e);
+        }
+        // TODO code to insert new password (with call to passwordDAO)
+    }
 }
