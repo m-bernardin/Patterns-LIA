@@ -1,6 +1,35 @@
-
-# Deliverable 1 Documents
+# Deliverable 1 Document
 ## Project Features
+- Persistent user information
+- Hashed user passwords
+- Password and email format verification on registration/update
+- Extensive test suite
+- Localized interface
+- Sensible checks on real values (e.g. conference capacity cannot be set to a value less than 1)
+- Rejection of overlaping registrations
+- Conference waiting list in case of a conference's registrations surpassing its capacity, ordered by attempted registration time
+- User dashboard displaying:
+    - Available conferences with all relevant information
+    - Allowing:
+        - Users to register for conferences
+        - Users to update personal information
+        - Users to view registered conferences dashboard
+- User conference dashboard allowing:
+    - Users to browse registered conferences
+    - Cancel conference registrations
+- Admin dashboard allowing the admin to:
+    - Create conferences
+    - Update conference information
+    - Delete irrelevant conferences, assuming:
+        - No users are actively registerd, or
+        - The conference end date has passed
+    - View conference reports detailing:
+        - Capacity
+        - Registered users
+        - Waiting list size
+    - View user reports detailing:
+        - Personal information (not password)
+        - Registered  conferences
 
 ## User Interface Plan
 ### 1. Login Window
