@@ -7,6 +7,7 @@ import ca.mbernardin.model.Subscription;
 import ca.mbernardin.model.Logger;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,8 +28,9 @@ public class SubscriptionDatabaseAccessObject extends DatabaseAccessObject{
                     int subscription_id=resultSet.getInt("subscription_id");
                     int user_id=resultSet.getInt("user_id");
                     int conference_id=resultSet.getInt("conference_id");
-                    boolean is_on_waiting_list=resultSet.getBoolean("is_on_waiting_list");
-                    results.add(new Subscription(subscription_id, user_id, conference_id, is_on_waiting_list));
+                    boolean waitinglist_status=resultSet.getBoolean("waiting_status");
+                    Date waitinglist_position=resultSet.getDate("waitinglist_position");
+                    results.add(new Subscription(subscription_id, user_id, conference_id, waitinglist_status, waitinglist_position));
                 }
                 return results;
         }
