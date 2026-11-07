@@ -41,12 +41,23 @@ public class SubscriptionDatabaseAccessObject extends DatabaseAccessObject{
     }
     public static void create(int user_id,int conference_id,boolean waiting_status,Date waitinglist_position){
         try(Connection connection=DriverManager.getConnection(target);
-            PreparedStatement inserter=connection.prepareStatement("INSERT INTO Subscription VALUES(?,?,?,?)");){
+            PreparedStatement inserter=connection.prepareStatement("INSERT INTO Subscription VALUES(?,?,?,?);");){
                 inserter.setInt(1,user_id);
                 inserter.setInt(2,conference_id);
                 inserter.setString(3,waiting_status+"");
                 inserter.setDate(4,waitinglist_position);
                 inserter.executeUpdate();
+        }
+        catch(SQLException e){
+            Logger.logSQL(e);
+        }
+    }
+    public static void remove(int user_id,int conference_id){
+        try(Connection connection=DriverManager.getConnection(target);
+            PreparedStatement remover=connection.prepareStatement("DELETE FROM Subscription WHERE user_id=? AND conference_id=?;");){
+                remover.setInt(1,user_id);
+                remover.setInt(2,conference_id);
+                remover.executeUpdate();
         }
         catch(SQLException e){
             Logger.logSQL(e);
