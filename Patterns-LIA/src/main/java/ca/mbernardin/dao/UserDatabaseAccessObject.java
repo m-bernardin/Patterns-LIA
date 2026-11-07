@@ -15,7 +15,7 @@ import ca.mbernardin.model.User;
 /**
  * UsersDatabaseObject
  */
-public class UsersDatabaseAccessObject extends DatabaseAccessObject{
+public class UserDatabaseAccessObject extends DatabaseAccessObject{
     public static Set<User> getAll(){
         try(Connection connection=DriverManager.getConnection(target);
             Statement query=connection.createStatement();

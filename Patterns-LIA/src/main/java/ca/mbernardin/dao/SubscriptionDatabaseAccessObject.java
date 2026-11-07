@@ -132,7 +132,7 @@ public class SubscriptionDatabaseAccessObject extends DatabaseAccessObject{
                 ResultSet resultSet=query.executeQuery();
                 Set<User> subscribers=new HashSet<>();
                 while(resultSet.next()){
-                    subscribers.add(UsersDatabaseAccessObject.getById(resultSet.getInt("user_id")));
+                    subscribers.add(UserDatabaseAccessObject.getById(resultSet.getInt("user_id")));
                 }
                 return subscribers;
         }
@@ -148,7 +148,7 @@ public class SubscriptionDatabaseAccessObject extends DatabaseAccessObject{
                 ResultSet resultSet=query.executeQuery();
                 Set<User> subscribers=new HashSet<>();
                 while(resultSet.next()){
-                    subscribers.add(UsersDatabaseAccessObject.getById(resultSet.getInt("user_id")));
+                    subscribers.add(UserDatabaseAccessObject.getById(resultSet.getInt("user_id")));
                 }
                 return subscribers;
         }
@@ -164,7 +164,7 @@ public class SubscriptionDatabaseAccessObject extends DatabaseAccessObject{
                 ResultSet resultSet=query.executeQuery();
                 Set<User> subscribers=new HashSet<>();
                 while(resultSet.next()){
-                    subscribers.add(UsersDatabaseAccessObject.getById(resultSet.getInt("user_id")));
+                    subscribers.add(UserDatabaseAccessObject.getById(resultSet.getInt("user_id")));
                 }
                 return subscribers;
         }
