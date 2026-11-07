@@ -11,8 +11,6 @@ import java.sql.PreparedStatement;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.sun.tools.classfile.StackMapTable_attribute.stack_map_frame;
-
 import ca.mbernardin.model.Conference;
 import ca.mbernardin.model.Logger;
 
@@ -53,13 +51,26 @@ public class ConferenceDatabaseAccessObject extends DatabaseAccessObject{
                 Date end_date=resultSet.getDate("end_date");
                 String location=resultSet.getString("location");
                 return new Conference(conference_id, title, capacity, start_date, end_date, location);
-            }
+        }
         catch(SQLException e){
             Logger.logSQL(e);
             return null;
         }
     }
-    public static void create(String title,int capacity,Date start_date,Date end_date,String location){}
+    public static void create(String title,int capacity,Date start_date,Date end_date,String location){
+        try(Connection connection=DriverManager.getConnection(target);
+            PreparedStatement inserter=connection.prepareStatement("INSERT INTO Conference VALUES(?,?,?,?,?);");){
+                inserter.setString(1,title);
+                inserter.setInt(2,capacity);
+                inserter.setDate(3,start_date);
+                inserter.setDate(4,end_date);
+                inserter.setString(5,location);
+                inserter.executeUpdate();
+        }
+        catch(SQLException e){
+            Logger.logSQL(e);
+        }
+    }
     public static void removeById(int conference_id){}
     public static void updateTitle(int conference_id,String title){}
     public static void updateCapacity(int conference_id,int capacity){}
