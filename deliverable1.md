@@ -44,10 +44,13 @@
 </p>
 
 ## Team Members and Responsibilites
-| Name | Features |
-| --- | --- |
-| Mathieu Bernardin | |
-| Manal Fayyaz | |
+
+| Feature | Mathieu Bernardin | Manal Fayyaz | Mohammad Al Mousa |
+| --- | --- | --- | --- |
+| featureName | | | |
+| Database Access Objects | x | | |
+
+
 
 ## User Stories
 ### User Account and Login:
