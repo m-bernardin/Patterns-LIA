@@ -103,7 +103,17 @@ public class ConferenceDatabaseAccessObject extends DatabaseAccessObject{
             Logger.logSQL(e);
         }
     }
-    public static void updateStartDate(int conference_id,Date start_date){}
+    public static void updateStartDate(int conference_id,Date start_date){
+        try(Connection connection=DriverManager.getConnection(target);
+            PreparedStatement updater=connection.prepareStatement("UPDATE Conference SET start_date=? WHERE conference_id=?;");){
+                updater.setDate(1,start_date);
+                updater.setInt(2,conference_id);
+                updater.executeUpdate();
+        }
+        catch(SQLException e){
+            Logger.logSQL(e);
+        }
+    }
     public static void updateEndDate(int conference_id,Date end_date){}
     public static void updateLocation(int conference_id,String location){}
 }
