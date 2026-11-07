@@ -29,26 +29,30 @@ public class PasswordDatabaseAccessObject extends DatabaseAccessObject{
             return false;
         }
     }
-    protected static void create(int user_id,String password_hash){
+    protected static boolean create(int user_id,String password_hash){
         try(Connection connection=DriverManager.getConnection(target);
             PreparedStatement inserter=connection.prepareStatement("INSERT INTO Credentials VALUES(?,?);");){
                 inserter.setInt(1,user_id);
                 inserter.setString(2,password_hash);
                 inserter.executeUpdate();
+                return true;
         }
         catch(SQLException e){
             Logger.logSQL(e);
+            return false;
         }
     }
-    public static void update(int user_id,String password_hash){
+    public static boolean update(int user_id,String password_hash){
         try(Connection connection=DriverManager.getConnection(target);
             PreparedStatement updater=connection.prepareStatement("UPDATE Credentials SET password_hash=? WHERE user_id=?;");){
                 updater.setString(1,password_hash);
                 updater.setInt(2,user_id);
                 updater.executeUpdate();
+                return true;
         }
         catch(SQLException e){
             Logger.logSQL(e);
+            return false;
         }
     }
 }
