@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import ca.mbernardin.model.Subscription;
+import ca.mbernardin.model.Conference;
 import ca.mbernardin.model.Logger;
 
 import java.sql.Connection;
@@ -72,6 +73,22 @@ public class SubscriptionDatabaseAccessObject extends DatabaseAccessObject{
         }
         catch(SQLException e){
             Logger.logSQL(e);
+        }
+    }
+    public static Set<Conference> getSubscriptions(int user_id){
+        try(Connection connection=DriverManager.getConnection(target);
+            PreparedStatement query=connection.prepareStatement("SELECT * FROM Subscription WHERE user_id=?");){
+                query.setInt(1,user_id);
+                ResultSet resultSet=query.executeQuery();
+                Set<Conference> subscriptions=new HashSet<>();
+                while(resultSet.next()){
+                    subscriptions.add(ConferenceDatabaseAccessObject.getById(resultSet.getInt("conference_id")));
+                }
+                return subscriptions;
+        }
+        catch(SQLException e){
+            Logger.logSQL(e);
+            return null;
         }
     }
 }
