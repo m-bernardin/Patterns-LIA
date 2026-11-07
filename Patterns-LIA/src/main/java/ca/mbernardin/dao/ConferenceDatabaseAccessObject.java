@@ -125,5 +125,15 @@ public class ConferenceDatabaseAccessObject extends DatabaseAccessObject{
             Logger.logSQL(e);
         }
     }
-    public static void updateLocation(int conference_id,String location){}
+    public static void updateLocation(int conference_id,String location){
+        try(Connection connection=DriverManager.getConnection(target);
+            PreparedStatement updater=connection.prepareStatement("UPDATE Conference SET location=? WHERE conference_id=?;");){
+                updater.setString(1,location);
+                updater.setInt(2,conference_id);
+                updater.executeUpdate();
+        }
+        catch(SQLException e){
+            Logger.logSQL(e);
+        }
+    }
 }
