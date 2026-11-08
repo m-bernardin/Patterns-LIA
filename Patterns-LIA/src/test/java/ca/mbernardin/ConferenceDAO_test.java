@@ -24,6 +24,8 @@ public class ConferenceDAO_test {
     public void create() {
         assertTrue(ConferenceDatabaseAccessObject.create("test title", 2, Date.valueOf("2025-01-01"), Date.valueOf("2025-01-01"), "montreal"));
     }
-
-
+    @Test
+    public void removeByID() {
+        assertTrue(ConferenceDatabaseAccessObject.removeById(1));
+    }
 }
