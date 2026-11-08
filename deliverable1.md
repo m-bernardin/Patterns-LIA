@@ -81,13 +81,35 @@ For more details, please refer to the entity relationship (ER) diagram at the en
 </p>
 
 ## Team Members and Responsibilites
-
+[!IMPORTANT] This table is subject to change, both in the distribution of unimplemented features and the specific features listed.
 | Feature | Mathieu Bernardin | Manal Fayyaz | Mohammad Al Mousa |
 | --- | --- | --- | --- |
 | featureName | | | |
 | Database Access Objects | x | | |
-
-
+| Password Hashing System | | | |
+| Password Format Verification | | | |
+| Email Format Verification | | | |
+| Canadian English Localisation | | | |
+| Canadian French Localisation | | | |
+| Overlaping Registration Verification | | | |
+| Interface Design | Mathieu Bernardin | Manal Fayyaz | Mohammad Al Mousa |
+| --- | --- | --- | --- |
+| Interface Mockups | | x | |
+| Login Window | | | |
+| Sign Up Window | | | |
+| My Profile Window | | | |
+| Create/Edit Conference Window | | | |
+| Administrator Panel Window | | | |
+| My Subscriptions Window | | | |
+| Participant Panel Window | | | |
+| Administrative Reports Window | | | |
+| Tests | Mathieu Bernardin | Manal Fayyaz | Mohammad Al Mousa |
+| --- | --- | --- | --- |
+| Conference DAO | | | |
+| Password DAO | x | | |
+| Subscription DAO | | | |
+| User DAO | | | |
+| Other Tests TBD | | | |
 
 ## User Stories
 ### User Account and Login:
