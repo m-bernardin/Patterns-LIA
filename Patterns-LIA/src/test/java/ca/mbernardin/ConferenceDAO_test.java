@@ -44,5 +44,8 @@ public class ConferenceDAO_test {
     public void updateEndDate() {
         assertTrue(ConferenceDatabaseAccessObject.updateEndDate(6, Date.valueOf("2025-01-01")));
     }
-
+    @Test
+    public void updateLocation() {
+        assertTrue(ConferenceDatabaseAccessObject.updateLocation(7, "Laval"));
+    }
 }
