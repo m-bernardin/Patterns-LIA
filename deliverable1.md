@@ -125,10 +125,10 @@ Allows administrators to select and view one of the six available reports. The r
 
 | Tests | Mathieu Bernardin | Manal Fayyaz | Mohammad Al Mousa |
 | --- | --- | --- | --- |
-| Conference DAO | | | |
+| Conference DAO | | | x |
 | Password DAO | x | | |
-| Subscription DAO | | | |
-| User DAO | | | |
+| Subscription DAO | | x | |
+| User DAO | | | x |
 | Other Tests TBD | | | |
 
 ## User Stories
