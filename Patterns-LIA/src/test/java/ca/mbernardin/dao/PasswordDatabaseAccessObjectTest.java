@@ -20,27 +20,36 @@ public class PasswordDatabaseAccessObjectTest {
         database.delete();
     }
     @Test
-    public void rejectsDuplicatePasswordTest(){
-
+    public void rejectsDuplicateIdCreatePasswordTest(){
+        assertFalse(PasswordDatabaseAccessObject.create(1,"testPassword"));
+    }
+    @Test void rejectsBadIdCreatePasswordTest(){
+        assertFalse(PasswordDatabaseAccessObject.create(-1,"testPassword"));
     }
     @Test
     public void acceptsValidPasswordCreationTest(){
-
+        assertTrue(PasswordDatabaseAccessObject.create(6,"testPassword"));
     }
     @Test
     public void acceptsValidPasswordUpdateTest(){
-
+        assertTrue(PasswordDatabaseAccessObject.update(2,"testPassword"));
     }
     @Test
     public void rejectsInvalidPasswordUpdateTest(){
-
+        assertFalse(PasswordDatabaseAccessObject.update(7,"testPassword"));
+        assertFalse(PasswordDatabaseAccessObject.update(-1,"testPassword"));
     }
     @Test
     public void validatesGoodPasswordTest(){
-
+        assertTrue(PasswordDatabaseAccessObject.validatePassword(3,"ali123"));
     }
     @Test
     public void doesNotValidateBadPasswordTest(){
-
+        assertFalse(PasswordDatabaseAccessObject.validatePassword(3,"testPassword"));
+    }
+    @Test
+    public void doesNotValidateInvalIdPasswordTest(){
+        assertFalse(PasswordDatabaseAccessObject.validatePassword(-1,"testPassword"));
+        assertFalse(PasswordDatabaseAccessObject.validatePassword(7,"testPassword"));
     }
 }
