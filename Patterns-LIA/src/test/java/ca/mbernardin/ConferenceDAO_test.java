@@ -32,6 +32,9 @@ public class ConferenceDAO_test {
     public void updateTitle() {
         assertTrue(ConferenceDatabaseAccessObject.updateTitle(3, "test title"));
     }
-
+    @Test
+    public void updateCapacity() {
+        assertTrue(ConferenceDatabaseAccessObject.updateCapacity(4, 10));
+    }
 
 }
