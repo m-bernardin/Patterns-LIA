@@ -97,10 +97,12 @@ Allows administrators to select and view one of the six available reports. The r
 </p>
 
 ## Team Members and Responsibilites
-[!IMPORTANT] This table is subject to change, both in the distribution of unimplemented features and the specific features listed.
+> [!IMPORTANT]
+> This table is subject to change, both in the distribution of unimplemented features and the specific features listed.
+
+<!-- | featureName | | | -->
 | Feature | Mathieu Bernardin | Manal Fayyaz | Mohammad Al Mousa |
 | --- | --- | --- | --- |
-| featureName | | | |
 | Database Access Objects | x | | |
 | Password Hashing System | | | |
 | Password Format Verification | | | |
@@ -108,6 +110,7 @@ Allows administrators to select and view one of the six available reports. The r
 | Canadian English Localisation | | | |
 | Canadian French Localisation | | | |
 | Overlaping Registration Verification | | | |
+
 | Interface Design | Mathieu Bernardin | Manal Fayyaz | Mohammad Al Mousa |
 | --- | --- | --- | --- |
 | Interface Mockups | | x | |
@@ -119,6 +122,7 @@ Allows administrators to select and view one of the six available reports. The r
 | My Subscriptions Window | | | |
 | Participant Panel Window | | | |
 | Administrative Reports Window | | | |
+
 | Tests | Mathieu Bernardin | Manal Fayyaz | Mohammad Al Mousa |
 | --- | --- | --- | --- |
 | Conference DAO | | | |
