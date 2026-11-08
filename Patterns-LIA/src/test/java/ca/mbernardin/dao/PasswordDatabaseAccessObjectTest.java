@@ -1,20 +1,23 @@
 package ca.mbernardin.dao;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.io.File;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
  * PasswordDatabaseAccessObjectTest
  */
 public class PasswordDatabaseAccessObjectTest {
-    @BeforeAll
+    @BeforeEach
     public void build(){
         DatabaseAccessObject.intializeDatabase();
     }
-    @AfterAll
+    @AfterEach
     public void teardown(){
         File database=new File("../../../../../main/resources/ca/mbernardin/database/database.db");
         database.delete();
