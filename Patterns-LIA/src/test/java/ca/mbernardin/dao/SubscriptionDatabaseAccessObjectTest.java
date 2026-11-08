@@ -1,4 +1,3 @@
-
 package ca.mbernardin.dao;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -10,7 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
-class SubscriptionDaoTest {
+class SubscriptionDatabaseAccessObjectTest {
 
     private String originalTarget;
 

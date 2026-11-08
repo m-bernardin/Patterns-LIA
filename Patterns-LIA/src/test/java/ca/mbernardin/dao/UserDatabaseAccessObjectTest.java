@@ -1,11 +1,10 @@
-package ca.mbernardin;
+package ca.mbernardin.dao;
 
-import ca.mbernardin.dao.UserDatabaseAccessObject;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class UserDAO_test {
+public class UserDatabaseAccessObjectTest {
     @Test
     public void getAll() {
         assertNotNull(UserDatabaseAccessObject.getAll());

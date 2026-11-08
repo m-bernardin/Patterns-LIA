@@ -1,6 +1,5 @@
-package ca.mbernardin;
+package ca.mbernardin.dao;
 
-import ca.mbernardin.dao.ConferenceDatabaseAccessObject;
 import org.junit.jupiter.api.Test;
 
 import java.sql.Date;
@@ -8,7 +7,7 @@ import java.sql.Date;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-public class ConferenceDAO_test {
+public class ConferenceDatabaseAccessObjectTest{
 
     @Test
     public void getAll() {
