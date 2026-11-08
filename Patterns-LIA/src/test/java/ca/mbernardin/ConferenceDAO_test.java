@@ -36,5 +36,13 @@ public class ConferenceDAO_test {
     public void updateCapacity() {
         assertTrue(ConferenceDatabaseAccessObject.updateCapacity(4, 10));
     }
+    @Test
+    public void updateStartDate() {
+        assertTrue(ConferenceDatabaseAccessObject.updateStartDate(5, Date.valueOf("2025-01-01")));
+    }
+    @Test
+    public void updateEndDate() {
+        assertTrue(ConferenceDatabaseAccessObject.updateEndDate(6, Date.valueOf("2025-01-01")));
+    }
 
 }
