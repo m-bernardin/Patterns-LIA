@@ -1,6 +1,10 @@
 package ca.mbernardin.dao;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
+
+import java.io.File;
 
 import java.sql.Date;
 
@@ -8,7 +12,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 public class ConferenceDatabaseAccessObjectTest{
-
+    @BeforeEach
+    public void build(){
+        DatabaseAccessObject.intializeDatabase();
+    }
+    @AfterEach
+    public void teardown(){
+        File database=new File("../../../../../main/resources/ca/mbernardin/database/database.db");
+        database.delete();
+    }
     @Test
     public void getAll() {
         assertNotNull(ConferenceDatabaseAccessObject.getAll());

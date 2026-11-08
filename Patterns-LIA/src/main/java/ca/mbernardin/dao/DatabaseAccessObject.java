@@ -32,10 +32,12 @@ public class DatabaseAccessObject {
         }
         catch(IOException e1){
             Logger.logIo(e1);
+            System.out.println("**"+e1.getMessage());
             return false;
         }
         catch(SQLException e2){
             Logger.logSQL(e2);
+            System.out.println("**"+e2.getMessage());
             return false;
         }
 

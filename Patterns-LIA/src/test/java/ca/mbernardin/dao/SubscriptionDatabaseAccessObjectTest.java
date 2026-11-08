@@ -17,11 +17,11 @@ class SubscriptionDatabaseAccessObjectTest {
     void setUp() {
     	  DatabaseAccessObject.intializeDatabase();
     }
-        @AfterEach
-        public void teardown(){
-            File database=new File("../../../../../main/resources/ca/mbernardin/database/database.db");
-            database.delete();
-        }
+    @AfterEach
+    public void teardown(){
+        File database=new File("src/main/resources/ca/mbernardin/database/database.db");
+        database.delete();
+    }
     
     @Test
     void testCreateSubscription() {

@@ -1,10 +1,23 @@
 package ca.mbernardin.dao;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
+
+import java.io.File;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class UserDatabaseAccessObjectTest {
+    @BeforeEach
+    void setUp() {
+    	  DatabaseAccessObject.intializeDatabase();
+    }
+    @AfterEach
+    public void teardown(){
+        File database=new File("src/main/resources/ca/mbernardin/database/database.db");
+        database.delete();
+    }
     @Test
     public void getAll() {
         assertNotNull(UserDatabaseAccessObject.getAll());

@@ -59,7 +59,7 @@ public class ConferenceDatabaseAccessObject extends DatabaseAccessObject{
     }
     public static boolean create(String title,int capacity,Date start_date,Date end_date,String location){
         try(Connection connection=DriverManager.getConnection(target);
-            PreparedStatement inserter=connection.prepareStatement("INSERT INTO Conference VALUES(?,?,?,?,?);");){
+            PreparedStatement inserter=connection.prepareStatement("INSERT INTO Conference(title,capacity,start_date,end_date,location) VALUES(?,?,?,?,?);");){
                 inserter.setString(1,title);
                 inserter.setInt(2,capacity);
                 inserter.setDate(3,start_date);

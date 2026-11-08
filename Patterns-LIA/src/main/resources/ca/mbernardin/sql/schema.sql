@@ -1,4 +1,4 @@
-CREATE TABLE User (
+CREATE TABLE IF NOT EXISTS User (
     user_id INTEGER,
     full_name TEXT NOT NULL,
     email TEXT NOT NULL,
@@ -8,7 +8,7 @@ CREATE TABLE User (
     CONSTRAINT UNIQUE_User_Email UNIQUE (email)
 );
 
-CREATE TABLE Credentials (
+CREATE TABLE IF NOT EXISTS Credentials (
     credential_id INTEGER,
     user_id INTEGER,
     password_hash TEXT NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE Credentials (
     CONSTRAINT FK_User_Credentials FOREIGN KEY (user_id) REFERENCES User(user_id) ON DELETE CASCADE
 );
 
-CREATE TABLE Conference (
+CREATE TABLE IF NOT EXISTS Conference (
     conference_id INTEGER,
     title TEXT NOT NULL,
     capacity INTEGER NOT NULL CHECK (capacity > 0),
@@ -26,7 +26,7 @@ CREATE TABLE Conference (
     CONSTRAINT PK_Conference PRIMARY KEY (conference_id AUTOINCREMENT)
 );
 
-CREATE TABLE Subscription (
+CREATE TABLE IF NOT EXISTS Subscription (
     subscription_id INTEGER,
     user_id INTEGER NOT NULL,
     conference_id INTEGER NOT NULL,

@@ -19,7 +19,7 @@ public class UserDatabaseAccessObject extends DatabaseAccessObject{
     public static Set<User> getAll(){
         try(Connection connection=DriverManager.getConnection(target);
             Statement query=connection.createStatement();
-            ResultSet resultSet=query.executeQuery("SELECT * FROM Users;")){
+            ResultSet resultSet=query.executeQuery("SELECT * FROM User;")){
                 Set<User> users=new HashSet<>();
                 while(resultSet.next()){
                     int user_id=resultSet.getInt("user_id");
@@ -67,7 +67,7 @@ public class UserDatabaseAccessObject extends DatabaseAccessObject{
     }
     public static boolean create(String full_name,String email,int age,String hashedPassword){
         try(Connection connection=DriverManager.getConnection(target);
-            PreparedStatement inserter=connection.prepareStatement("INSERT INTO User VALUES(?,?,?,'Participant');");){
+            PreparedStatement inserter=connection.prepareStatement("INSERT INTO User(full_name,email,age) VALUES(?,?,?,'Participant');");){
                 inserter.setString(1,full_name);
                 inserter.setString(2,email);
                 inserter.setInt(3,age);

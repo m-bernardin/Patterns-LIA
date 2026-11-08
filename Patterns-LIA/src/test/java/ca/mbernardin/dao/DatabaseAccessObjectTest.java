@@ -13,7 +13,7 @@ import java.io.File;
 public class DatabaseAccessObjectTest {
     @AfterEach
     public void teardown(){
-        File database=new File("../../../../../main/resources/ca/mbernardin/database/database.db");
+        File database=new File("src/main/resources/ca/mbernardin/database/database.db");
         database.delete();
     }
     @Test

@@ -31,7 +31,7 @@ public class PasswordDatabaseAccessObject extends DatabaseAccessObject{
     }
     protected static boolean create(int user_id,String password_hash){
         try(Connection connection=DriverManager.getConnection(target);
-            PreparedStatement inserter=connection.prepareStatement("INSERT INTO Credentials VALUES(?,?);");){
+            PreparedStatement inserter=connection.prepareStatement("INSERT INTO Credentials(user_id,password_hash) VALUES(?,?);");){
                 inserter.setInt(1,user_id);
                 inserter.setString(2,password_hash);
                 inserter.executeUpdate();
