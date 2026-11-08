@@ -30,7 +30,7 @@ public class SubscriptionDatabaseAccessObject extends DatabaseAccessObject{
                     int subscription_id=resultSet.getInt("subscription_id");
                     int user_id=resultSet.getInt("user_id");
                     int conference_id=resultSet.getInt("conference_id");
-                    boolean waitinglist_status=resultSet.getBoolean("waiting_status");
+                    boolean waitinglist_status=resultSet.getBoolean("waitinglist_status");
                     Date waitinglist_position=resultSet.getDate("waitinglist_position");
                     results.add(new Subscription(subscription_id, user_id, conference_id, waitinglist_status, waitinglist_position));
                 }
@@ -43,10 +43,10 @@ public class SubscriptionDatabaseAccessObject extends DatabaseAccessObject{
     }
     public static boolean create(int user_id,int conference_id,boolean waitinglist_status,Date waitinglist_position){
         try(Connection connection=DriverManager.getConnection(target);
-            PreparedStatement inserter=connection.prepareStatement("INSERT INTO Subscription VALUES(?,?,?,?);");){
+            PreparedStatement inserter=connection.prepareStatement("INSERT INTO Subscription (user_id, conference_id, waitinglist_status, waitinglist_position) VALUES (?, ?, ?, ?);");){
                 inserter.setInt(1,user_id);
                 inserter.setInt(2,conference_id);
-                inserter.setString(3,waitinglist_status+"");
+                inserter.setString(3,String.valueOf(waitinglist_status));
                 inserter.setDate(4,waitinglist_position);
                 inserter.executeUpdate();
                 return true;
@@ -100,7 +100,7 @@ public class SubscriptionDatabaseAccessObject extends DatabaseAccessObject{
     }
     public static Set<Conference> getConfirmedSubscriptions(int user_id){
         try(Connection connection=DriverManager.getConnection(target);
-            PreparedStatement query=connection.prepareStatement("SELECT * FROM Subscription WHERE user_id=? AND waitinglist_status='False';");){
+            PreparedStatement query=connection.prepareStatement("SELECT * FROM Subscription WHERE user_id=? AND waitinglist_status='false';");){
                 query.setInt(1,user_id);
                 ResultSet resultSet=query.executeQuery();
                 Set<Conference> subscriptions=new HashSet<>();
@@ -116,7 +116,7 @@ public class SubscriptionDatabaseAccessObject extends DatabaseAccessObject{
     }
     public static Set<Conference> getWaitlistedSubscriptions(int user_id){
         try(Connection connection=DriverManager.getConnection(target);
-            PreparedStatement query=connection.prepareStatement("SELECT * FROM Subscription WHERE user_id=? AND waitinglist_status='True';");){
+            PreparedStatement query=connection.prepareStatement("SELECT * FROM Subscription WHERE user_id=? AND waitinglist_status='true';");){
                 query.setInt(1,user_id);
                 ResultSet resultSet=query.executeQuery();
                 Set<Conference> subscriptions=new HashSet<>();
@@ -149,7 +149,7 @@ public class SubscriptionDatabaseAccessObject extends DatabaseAccessObject{
     }
     public static Set<User> getConfirmedSubscribers(int conference_id){
         try(Connection connection=DriverManager.getConnection(target);
-            PreparedStatement query=connection.prepareStatement("SELECT * FROM Subscription WHERE conference_id=? AND waitinglist_status='False';");){
+            PreparedStatement query=connection.prepareStatement("SELECT * FROM Subscription WHERE conference_id=? AND waitinglist_status='false';");){
                 query.setInt(1,conference_id);
                 ResultSet resultSet=query.executeQuery();
                 Set<User> subscribers=new HashSet<>();
@@ -165,7 +165,7 @@ public class SubscriptionDatabaseAccessObject extends DatabaseAccessObject{
     }
     public static Set<User> getWaitlistedSubscribers(int conference_id){
         try(Connection connection=DriverManager.getConnection(target);
-            PreparedStatement query=connection.prepareStatement("SELECT * FROM Subscription WHERE conference_id=? AND waitinglist_status='True';");){
+            PreparedStatement query=connection.prepareStatement("SELECT * FROM Subscription WHERE conference_id=? AND waitinglist_status='true';");){
                 query.setInt(1,conference_id);
                 ResultSet resultSet=query.executeQuery();
                 Set<User> subscribers=new HashSet<>();
