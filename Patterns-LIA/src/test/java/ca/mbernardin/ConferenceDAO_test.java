@@ -26,6 +26,12 @@ public class ConferenceDAO_test {
     }
     @Test
     public void removeByID() {
-        assertTrue(ConferenceDatabaseAccessObject.removeById(1));
+        assertTrue(ConferenceDatabaseAccessObject.removeById(-1));
     }
+    @Test
+    public void updateTitle() {
+        assertTrue(ConferenceDatabaseAccessObject.updateTitle(3, "test title"));
+    }
+
+
 }
