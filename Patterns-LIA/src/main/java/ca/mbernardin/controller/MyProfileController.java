@@ -1,6 +1,8 @@
 package ca.mbernardin.controller;
 
 import ca.mbernardin.dao.UserDatabaseAccessObject;
+import ca.mbernardin.model.User;
+import ca.mbernardin.service.UserService;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,7 +23,21 @@ public class MyProfileController {
     @FXML
     private TextField age_ft;
 
-    private UserDatabaseAccessObject userDAO = new UserDatabaseAccessObject();
+    private UserService us = new UserService();
+    private UserDatabaseAccessObject userdao = new UserDatabaseAccessObject();
+
+    private User currentUser;
+
+    @FXML
+    public void initialize() {
+
+        // this is something we need to do:
+        // The code doesn't have a way of telling which user is the current user (if i'm not wrong). So I can't display the current user's info for now.
+
+        fullname_ft.setText(userdao.getById(CURRENT_USER_ID).full_name);
+        email_ft.setText(userdao.getById(CURRENT_USER_ID).email);
+        age_ft.setText(userdao.getById(CURRENT_USER_ID).age);
+    }
 
     @FXML
     public void backButton(ActionEvent actionEvent) throws IOException {
@@ -29,7 +45,10 @@ public class MyProfileController {
     }
     @FXML
     public void saveChangesButton(ActionEvent actionEvent) {
-        
+        us.serviceModifyName(fullname_ft.getText());
+        us.serviceModifyEmail(email_ft.getText());
+        us.serviceModifyAge(age_ft.getText());
+        initialize();
     }
     @FXML
     public void ChangeScenes(ActionEvent event, String fxml, String title) throws IOException {
