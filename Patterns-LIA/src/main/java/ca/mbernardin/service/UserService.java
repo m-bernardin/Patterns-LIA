@@ -11,6 +11,22 @@ public class UserService {
             System.out.println("User created");
         }
     }
+    public void serviceModifyName(String fullname) {
+        if(isValidName(fullname)) {
+            userdao.updateFullName(CURRENT_USER_ID, fullname);
+        }
+    }
+    public void serviceModifyEmail(String email) {
+        if(isValidEmail(email)) {
+            userdao.updateEmail(CURRENT_USER_ID, email);
+        }
+
+    }
+    public void serviceModifyAge(String age) {
+        if(isRightAge(numerizeAge(age))) {
+            userdao.updateAge(CURRENT_USER_ID, numerizeAge(age));
+        }
+    }
 
     public boolean isValidName(String name) {
         if(name==null) return false;
