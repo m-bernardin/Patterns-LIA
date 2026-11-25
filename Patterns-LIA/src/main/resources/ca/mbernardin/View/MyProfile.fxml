@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="557.0" prefWidth="398.0" style="-fx-background-color: #e5e5e5;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mbernardin.controller.MyProfileController">
+<AnchorPane prefHeight="557.0" prefWidth="398.0" style="-fx-background-color: #e5e5e5;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mbernardin.controller.MyProfileController">
    <children>
       <Label layoutX="32.0" layoutY="26.0" prefHeight="45.0" prefWidth="352.0" text="My Profile">
          <font>
-            <Font name="Georgia" size="36.0" />
+            <Font name="Georgia Bold" size="36.0" />
          </font>
       </Label>
       <Label layoutX="27.0" layoutY="137.0" prefHeight="39.0" prefWidth="352.0" text="Full Name:" textFill="#1b1b1b">
