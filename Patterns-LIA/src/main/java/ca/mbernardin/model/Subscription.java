@@ -18,4 +18,16 @@ public class Subscription {
         this.waitinglist_status=waitinglist_status;
         this.waitinglist_position=waitinglist_position;
     }
+	 
+	public int getUser_id() {
+		return user_id;
+	}
+	public int getConference_id() {
+		return conference_id;
+	}
+	 
+	public boolean isWaitinglist_status() {
+		return waitinglist_status;
+	}
+	 
 }
