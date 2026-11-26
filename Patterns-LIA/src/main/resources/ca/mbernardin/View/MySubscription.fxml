@@ -9,9 +9,9 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="522.0" prefWidth="794.0" style="-fx-background-color: #e5e5e5;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CONTROLLER_NAME">
+<AnchorPane prefHeight="522.0" prefWidth="794.0" style="-fx-background-color: #e5e5e5;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mbernardin.controller.MySubscriptionsController">
    <children>
-      <Label layoutX="38.0" layoutY="35.0" prefHeight="45.0" prefWidth="352.0" text="My Subscriptins">
+      <Label layoutX="38.0" layoutY="35.0" prefHeight="45.0" prefWidth="352.0" text="My Subscriptions">
          <font>
             <Font name="Georgia Bold" size="36.0" />
          </font>
@@ -19,11 +19,14 @@
       <ChoiceBox fx:id="languageField" layoutX="615.0" layoutY="45.0" prefHeight="25.0" prefWidth="133.0" style="-fx-background-color: black; -fx-background-radius: 90;" />
       <TableView fx:id="subsTable" layoutX="46.0" layoutY="128.0" prefHeight="299.0" prefWidth="702.0" style="-fx-border-color: black; -fx-border-radius: 10; -fx-background-radius: 10;">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="idCol" prefWidth="51.333309173583984" text="Id" />
+          <TableColumn fx:id="conferencesCol" prefWidth="165.99999237060547" text="Conferences" />
+            <TableColumn fx:id="startDateCol" prefWidth="191.333251953125" text="Start Date and Time" />
+            <TableColumn fx:id="endDateCol" prefWidth="168.66677856445312" text="End Date and Time" />
+            <TableColumn fx:id="statusCol" prefWidth="122.0" text="Status" />
         </columns>
       </TableView>
-      <Button layoutX="615.0" layoutY="445.0" mnemonicParsing="false" onAction="#cancelSubscriptionButton" prefHeight="45.0" prefWidth="133.0" style="-fx-background-color: black; -fx-background-radius: 90;" text="Cancel subscripton" textFill="WHITE">
+      <Button layoutX="615.0" layoutY="445.0" mnemonicParsing="false" onAction="#cancelSubscriptionButton" prefHeight="45.0" prefWidth="133.0" style="-fx-background-color: black; -fx-background-radius: 90;" text="Cancel subscription" textFill="WHITE">
          <font>
             <Font name="Georgia" size="12.0" />
          </font>
