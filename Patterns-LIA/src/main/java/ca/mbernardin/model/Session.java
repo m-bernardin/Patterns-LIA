@@ -13,9 +13,14 @@ public class Session {
         currentUser = newUser;
     }
     public static int getCurrentUserId() {
-        return currentUser.getUserId();
+        if(currentUser != null) {
+            return currentUser.getUserId();
+        }
+        else {
+            return -1;
+        }
     }
-
-
-
+    public static void clear() {
+        currentUser = null;
+    }
 }
