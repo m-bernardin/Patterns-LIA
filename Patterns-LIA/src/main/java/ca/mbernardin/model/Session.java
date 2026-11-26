@@ -23,4 +23,12 @@ public class Session {
     public static void clear() {
         currentUser = null;
     }
+
+    public static Locale getLocale() {
+        return locale;
+    }
+
+    public static void setLocale(Locale locale) {
+        Session.locale = locale;
+    }
 }
