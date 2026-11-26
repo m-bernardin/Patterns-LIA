@@ -1,6 +1,7 @@
 package ca.mbernardin.controller;
 
 import ca.mbernardin.dao.UserDatabaseAccessObject;
+import ca.mbernardin.model.Session;
 import ca.mbernardin.model.User;
 import ca.mbernardin.service.UserService;
 import javafx.application.Application;
@@ -23,8 +24,8 @@ public class MyProfileController {
     @FXML
     private TextField age_ft;
 
-    private UserService us = new UserService();
-    private UserDatabaseAccessObject userdao = new UserDatabaseAccessObject();
+    private final UserService us = new UserService();
+    private final UserDatabaseAccessObject userdao = new UserDatabaseAccessObject();
 
     private User currentUser;
 
@@ -34,9 +35,9 @@ public class MyProfileController {
         // this is something we need to do:
         // The code doesn't have a way of telling which user is the current user (if i'm not wrong). So I can't display the current user's info for now.
 
-        fullname_ft.setText(userdao.getById(CURRENT_USER_ID).full_name);
-        email_ft.setText(userdao.getById(CURRENT_USER_ID).email);
-        age_ft.setText(userdao.getById(CURRENT_USER_ID).age);
+        fullname_ft.setText(UserDatabaseAccessObject.getById(Session.getCurrentUserId()).getFullName());
+        email_ft.setText(UserDatabaseAccessObject.getById(Session.getCurrentUserId()).getEmail());
+        age_ft.setText(UserDatabaseAccessObject.getById(Session.getCurrentUserId()).getAge() + "");
     }
 
     @FXML
@@ -45,9 +46,9 @@ public class MyProfileController {
     }
     @FXML
     public void saveChangesButton(ActionEvent actionEvent) {
-        us.serviceModifyName(fullname_ft.getText());
-        us.serviceModifyEmail(email_ft.getText());
-        us.serviceModifyAge(age_ft.getText());
+        UserService.serviceModifyName(fullname_ft.getText());
+        UserService.serviceModifyEmail(email_ft.getText());
+        UserService.serviceModifyAge(age_ft.getText());
         initialize();
     }
     @FXML

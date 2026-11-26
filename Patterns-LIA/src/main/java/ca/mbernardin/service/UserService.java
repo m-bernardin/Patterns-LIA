@@ -1,45 +1,46 @@
 package ca.mbernardin.service;
 
 import ca.mbernardin.dao.UserDatabaseAccessObject;
+import ca.mbernardin.model.Session;
 
 public class UserService {
-    private UserDatabaseAccessObject userdao = new UserDatabaseAccessObject();
+    //private UserDatabaseAccessObject userdao = new UserDatabaseAccessObject();
 
-    public void serviceCreate(String fullname, String email, String age, String password) {
+    static public void serviceCreate(String fullname, String email, String age, String password) {
         if(isValidName(fullname) && isValidEmail(email) && isRightAge(numerizeAge(age))) {
-            userdao.create(fullname, email, numerizeAge(age), password);
+            UserDatabaseAccessObject.create(fullname, email, numerizeAge(age), password);
             System.out.println("User created");
         }
     }
-    public void serviceModifyName(String fullname) {
+    public static void serviceModifyName(String fullname) {
         if(isValidName(fullname)) {
-            userdao.updateFullName(CURRENT_USER_ID, fullname);
+            UserDatabaseAccessObject.updateFullName(Session.getCurrentUserId(), fullname);
         }
     }
-    public void serviceModifyEmail(String email) {
+    public static void serviceModifyEmail(String email) {
         if(isValidEmail(email)) {
-            userdao.updateEmail(CURRENT_USER_ID, email);
+            UserDatabaseAccessObject.updateEmail(Session.getCurrentUserId(), email);
         }
 
     }
-    public void serviceModifyAge(String age) {
+    public static void serviceModifyAge(String age) {
         if(isRightAge(numerizeAge(age))) {
-            userdao.updateAge(CURRENT_USER_ID, numerizeAge(age));
+            UserDatabaseAccessObject.updateAge(Session.getCurrentUserId(), numerizeAge(age));
         }
     }
 
-    public boolean isValidName(String name) {
+    public static boolean isValidName(String name) {
         if(name==null) return false;
         return name.matches("[a-zA-Z ]+");
     }
-    public boolean isValidEmail(String email) {
+    public static boolean isValidEmail(String email) {
         if(email==null) return false;
         return email.matches("^[a-zA-Z\\d._-]+@[a-zA-Z\\d._-]+\\.[a-zA-Z]{2,}$");
     }
-    public boolean isRightAge(int age) {
+    public static boolean isRightAge(int age) {
         return age<18;
     }
-    public int numerizeAge(String age) {
+    public static int numerizeAge(String age) {
         if(age==null || !age.matches("[\\d]*")) return 0;
         return Integer.parseInt(age);
     }

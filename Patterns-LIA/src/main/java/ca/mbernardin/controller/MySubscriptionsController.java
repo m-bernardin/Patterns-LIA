@@ -1,5 +1,6 @@
 package ca.mbernardin.controller;
 
+import ca.mbernardin.model.Session;
 import ca.mbernardin.model.Subscription;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
