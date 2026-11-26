@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="SignupController"
+            prefHeight="400.0" prefWidth="600.0">
+  <VBox fx:id="wrapper"><children>
+    <!--language switcher-->
+    <Button fx:id="langSwitchBttn" text="EN/FR"/>
+    <!--window title-->
+    <Label fx:id="titleLbl"/>
+    <!--first name input-->
+    <HBox fx:id="fNameBox"><children>
+        <Label fx:id="fNameLbl"/>
+        <TextField fx:id="fNameField"/>
+    </children></HBox>
+    <!--email input-->
+    <HBox fx:id="emailBox"><children>
+        <Label fx:id="emailLbl"/>
+        <TextField fx:id="emailField"/>
+    </children></HBox>
+    <!--age input-->
+    <HBox fx:id="ageBox"><children>
+        <Label fx:id="ageLbl"/>
+        <TextField fx:id="ageField"/>
+    </children></HBox>
+    <!--psswd input-->
+    <HBox fx:id="psswdBox"><children>
+        <Label fx:id="psswdLbl"/>
+        <PasswordField fx:id="psswdField"/>
+    </children></HBox>
+    <!--nav buttons-->
+    <HBox fx:id="navBox"><children>
+        <Button fx:id="backBttn"/>
+        <Button fx:id="validateBttn"/>
+    </children></HBox>
+  </children></VBox>
+</AnchorPane>
