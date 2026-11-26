@@ -1,7 +1,11 @@
 package ca.mbernardin.controller;
 
+import ca.mbernardin.dao.ConferenceDatabaseAccessObject;
+import ca.mbernardin.dao.SubscriptionDatabaseAccessObject;
+import ca.mbernardin.model.Conference;
 import ca.mbernardin.model.Session;
 import ca.mbernardin.model.Subscription;
+import ca.mbernardin.service.SubscriptionRow;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,27 +23,29 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.Locale;
+import java.util.Set;
 
 public class MySubscriptionsController {
     @FXML
     private ChoiceBox<Locale> languageField;
     @FXML
-    private TableView<Subscription> subsTable;
+    private TableView<SubscriptionRow> subsTable;
     @FXML
-    private TableColumn<Subscription, String> idCol;
+    private TableColumn<SubscriptionRow, String> idCol;
     @FXML
-    private TableColumn<Subscription, String> conferencesCol;
+    private TableColumn<SubscriptionRow, String> conferencesCol;
     @FXML
-    private TableColumn<Subscription, LocalDateTime> startDateCol;
+    private TableColumn<SubscriptionRow, java.sql.Date> startDateCol;
     @FXML
-    private TableColumn<Subscription, LocalDateTime> endDateCol;
+    private TableColumn<SubscriptionRow, java.sql.Date> endDateCol;
     @FXML
-    private TableColumn<Subscription, String> statusCol;
-    @FXML
-    private final ObservableList<Subscription> subscriptions = FXCollections.observableArrayList();
+    private TableColumn<SubscriptionRow, String> statusCol;
+
+    private final ObservableList<SubscriptionRow> subscriptions = FXCollections.observableArrayList();
 
     @FXML
     void initialize() {
+
         languageField.getItems().addAll(Locale.ENGLISH, Locale.FRENCH);
         languageField.setValue(Session.getLocale());
 
@@ -50,6 +56,7 @@ public class MySubscriptionsController {
         statusCol.setCellValueFactory(new PropertyValueFactory<>("status"));
 
         subsTable.setItems(subscriptions);
+        refreshButton();
     }
     @FXML
     public void backButton(ActionEvent actionEvent) throws IOException {
@@ -57,17 +64,32 @@ public class MySubscriptionsController {
     }
     @FXML
     public void refreshButton() {
-        idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-        conferencesCol.setCellValueFactory(new PropertyValueFactory<>("conference"));
-        startDateCol.setCellValueFactory(new PropertyValueFactory<>("startDate"));
-        endDateCol.setCellValueFactory(new PropertyValueFactory<>("endDate"));
-        statusCol.setCellValueFactory(new PropertyValueFactory<>("status"));
-
-        subsTable.setItems(subscriptions);
+        subscriptions.setAll(loadRows());
     }
     @FXML
     public void cancelSubscriptionButton() {
+        SubscriptionRow selected = subsTable.getSelectionModel().getSelectedItem();
+        if(selected == null) return;
+        int userId = Session.getCurrentUserId();
+        if(userId < 0) return;
 
+        SubscriptionDatabaseAccessObject.remove(userId, selected.getConferenceId());
+        refreshButton();
+    }
+
+    private ObservableList<SubscriptionRow> loadRows() {
+        ObservableList<SubscriptionRow> rows = FXCollections.observableArrayList();
+        int userId = Session.getCurrentUserId();
+        if(userId < 0) return rows;
+
+        Set<Subscription> all = SubscriptionDatabaseAccessObject.getAll();
+        if(all == null) return rows;
+        for(Subscription subscription : all) {
+            if(subscription.getUser_id() != userId) continue;
+            Conference conference = ConferenceDatabaseAccessObject.getById(subscription.getConference_id());
+            if(conference != null) rows.add(new SubscriptionRow(subscription, conference));
+        }
+        return rows;
     }
 
     @FXML
