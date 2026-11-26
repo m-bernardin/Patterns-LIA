@@ -22,4 +22,28 @@ public class Conference{
         this.end_date=end_date;
         this.location=location;
     }
+     public int getConferenceId() {
+        return conference_id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public Date getStartDate() {
+        return start_date;
+    }
+
+    public Date getEndDate() {
+        return end_date;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+    
 }
