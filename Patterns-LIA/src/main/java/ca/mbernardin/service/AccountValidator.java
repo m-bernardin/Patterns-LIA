@@ -11,7 +11,7 @@ public class AccountValidator {
     // TODO verify the \\ works as expected
     private static final String EMAIL_PATTERN="^[a-zA-Z0-9\\.\\-_]+@[a-zA-Z0-9\\.\\-_]+\\.(com|ca|org|gov|info|wiki)$";
     private static final String PSSWD_PATTERN="^[a-zA-Z0-9\\.\\-\\?#_!@]{10,}$";
-    private static final char[] PSSWD_SPECIAL_CHARS={'.','-','?','#','_','!','@'};
+    public static final char[] PSSWD_SPECIAL_CHARS={'.','-','?','#','_','!','@'};
     public static boolean validateNewAccount(String name,String email,int age,String psswd){
         InvalidFormatException exception=new InvalidFormatException();        
         if(!name.matches(NAME_PATTERN))exception.invalidateName();
@@ -21,4 +21,6 @@ public class AccountValidator {
         if(!exception.isEmpty())throw exception;
         return true;
     }
+    // TODO determine if we want a min age
+    private static boolean validateAge(int age){return age>0;}
 }
