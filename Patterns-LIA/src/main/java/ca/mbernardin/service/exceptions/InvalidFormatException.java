@@ -13,4 +13,5 @@ public class InvalidFormatException extends Exception{
     public void invalidateAge(){causes.add("age");}
     public void invalidatePsswd(){causes.add("psswd");}
     public Set<String> getCauses(){return causes;}
+    public boolean isEmpty(){return causes.isEmpty();}
 }
