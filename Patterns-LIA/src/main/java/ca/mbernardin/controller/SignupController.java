@@ -21,4 +21,21 @@ public class SignupController {
     @FXML private TextField psswdField;
     @FXML private Button backBttn;
     @FXML private Button validateBttn;
+
+    @FXML
+    public void initialize(){
+        populateText();
+    }
+
+    @FXML
+    public void switchLang(){}
+
+    @FXML
+    public void back(){}
+
+    @FXML
+    public void validate(){}
+
+    private void populateText(){}
+
 }

@@ -12,7 +12,7 @@
             prefHeight="400.0" prefWidth="600.0">
   <VBox fx:id="wrapper"><children>
     <!--language switcher-->
-    <Button fx:id="langSwitchBttn" text="EN/FR"/>
+    <Button fx:id="langSwitchBttn" text="EN/FR" onAction="#switchLang"/>
     <!--window title-->
     <Label fx:id="titleLbl"/>
     <!--first name input-->
@@ -37,8 +37,8 @@
     </children></HBox>
     <!--nav buttons-->
     <HBox fx:id="navBox"><children>
-        <Button fx:id="backBttn"/>
-        <Button fx:id="validateBttn"/>
+        <Button fx:id="backBttn" onAction="#back"/>
+        <Button fx:id="validateBttn" onAction="#validate"/>
     </children></HBox>
   </children></VBox>
 </AnchorPane>
