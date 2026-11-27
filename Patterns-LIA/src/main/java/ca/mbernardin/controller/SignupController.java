@@ -2,6 +2,7 @@ package ca.mbernardin.controller;
 
 import ca.mbernardin.dao.UserDatabaseAccessObject;
 import ca.mbernardin.service.AccountValidator;
+import ca.mbernardin.service.HashingService;
 import ca.mbernardin.service.exceptions.InvalidFormatException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -39,7 +40,7 @@ public class SignupController {
     @FXML
     public void validate(){
         try{
-            if(AccountValidator.validateNewAccount(nameField.getText(),emailField.getText(),ageField.getText(),psswdField.getText()))UserDatabaseAccessObject.create(nameField.getText(),emailField.getText(),Integer.parseInt(ageField.getText()),Hasher.hash(psswdField.getText()));
+            if(AccountValidator.validateNewAccount(nameField.getText(),emailField.getText(),ageField.getText(),psswdField.getText()))UserDatabaseAccessObject.create(nameField.getText(),emailField.getText(),Integer.parseInt(ageField.getText()),HashingService.hash(psswdField.getText()));
         }
         catch(InvalidFormatException e){
             // TODO code to show error box
