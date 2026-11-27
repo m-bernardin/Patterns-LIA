@@ -12,7 +12,7 @@ public class AccountValidator {
     private static final String EMAIL_PATTERN="^[a-zA-Z0-9\\.\\-_]+@[a-zA-Z0-9\\.\\-_]+\\.(com|ca|org|gov|info|wiki)$";
     private static final String PSSWD_PATTERN="^[a-zA-Z0-9\\.\\-\\?#_!@]{10,}$";
     public static final char[] PSSWD_SPECIAL_CHARS={'.','-','?','#','_','!','@'};
-    public static boolean validateNewAccount(String name,String email,int age,String psswd){
+    public static boolean validateNewAccount(String name,String email,int age,String psswd)throws InvalidFormatException{
         InvalidFormatException exception=new InvalidFormatException();        
         if(!name.matches(NAME_PATTERN))exception.invalidateName();
         if(!email.matches(EMAIL_PATTERN))exception.invalidateEmail();
