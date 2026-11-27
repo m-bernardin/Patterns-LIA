@@ -26,7 +26,7 @@ public class LoggingService {
     public static void logSQL(SQLException e){
         log(String.format("[%d] SQL Exception: %s\n%s",e.getErrorCode(),e.getLocalizedMessage(),e.getStackTrace()));
     }
-    public static void logIo(IOException e){
-        log(String.format("[%d] IO Exception: %s\n%s",e.getErrorCode(),e.getLocalizedMessage(),e.getStackTrace()));
+    public static void logIO(IOException e){
+        log(String.format("IO Exception: %s\n%s",e.getLocalizedMessage(),e.getStackTrace()));
     }
 }
