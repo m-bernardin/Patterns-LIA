@@ -12,7 +12,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import ca.mbernardin.model.Conference;
-import ca.mbernardin.model.Logger;
+import ca.mbernardin.service.LoggingService;
 
 /**
  * ConferenceDatabaseAccessObject
@@ -35,7 +35,7 @@ public class ConferenceDatabaseAccessObject extends DatabaseAccessObject{
                 return results;
         }
         catch(SQLException e){
-            Logger.logSQL(e);
+            LoggingService.logSQL(e);
             return null;
         }
     }
@@ -53,7 +53,7 @@ public class ConferenceDatabaseAccessObject extends DatabaseAccessObject{
                 return new Conference(conference_id, title, capacity, start_date, end_date, location);
         }
         catch(SQLException e){
-            Logger.logSQL(e);
+            LoggingService.logSQL(e);
             return null;
         }
     }
@@ -69,7 +69,7 @@ public class ConferenceDatabaseAccessObject extends DatabaseAccessObject{
                 return true;
         }
         catch(SQLException e){
-            Logger.logSQL(e);
+            LoggingService.logSQL(e);
             return false;
         }
     }
@@ -81,7 +81,7 @@ public class ConferenceDatabaseAccessObject extends DatabaseAccessObject{
                 return true;
         }
         catch(SQLException e){
-            Logger.logSQL(e);
+            LoggingService.logSQL(e);
             return false;
         }
     }
@@ -94,7 +94,7 @@ public class ConferenceDatabaseAccessObject extends DatabaseAccessObject{
                 return true;
         }
         catch(SQLException e){
-            Logger.logSQL(e);
+            LoggingService.logSQL(e);
             return false;
         }
     }
@@ -107,7 +107,7 @@ public class ConferenceDatabaseAccessObject extends DatabaseAccessObject{
                 return true;
         }
         catch(SQLException e){
-            Logger.logSQL(e);
+            LoggingService.logSQL(e);
             return false;
         }
     }
@@ -120,7 +120,7 @@ public class ConferenceDatabaseAccessObject extends DatabaseAccessObject{
                 return true;
         }
         catch(SQLException e){
-            Logger.logSQL(e);
+            LoggingService.logSQL(e);
             return false;
         }
     }
@@ -133,7 +133,7 @@ public class ConferenceDatabaseAccessObject extends DatabaseAccessObject{
                 return true;
         }
         catch(SQLException e){
-            Logger.logSQL(e);
+            LoggingService.logSQL(e);
             return false;
         }
     }
@@ -146,7 +146,7 @@ public class ConferenceDatabaseAccessObject extends DatabaseAccessObject{
                 return true;
         }
         catch(SQLException e){
-            Logger.logSQL(e);
+            LoggingService.logSQL(e);
             return false;
         }
     }

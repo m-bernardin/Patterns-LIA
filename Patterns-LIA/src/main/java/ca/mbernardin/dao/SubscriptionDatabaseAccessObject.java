@@ -6,7 +6,7 @@ import java.util.Set;
 import ca.mbernardin.model.Subscription;
 import ca.mbernardin.model.User;
 import ca.mbernardin.model.Conference;
-import ca.mbernardin.model.Logger;
+import ca.mbernardin.service.LoggingService;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -37,7 +37,7 @@ public class SubscriptionDatabaseAccessObject extends DatabaseAccessObject{
                 return results;
         }
         catch(SQLException e){
-            Logger.logSQL(e);
+            LoggingService.logSQL(e);
             return null;
         }
     }
@@ -52,7 +52,7 @@ public class SubscriptionDatabaseAccessObject extends DatabaseAccessObject{
                 return true;
         }
         catch(SQLException e){
-            Logger.logSQL(e);
+            LoggingService.logSQL(e);
             return false;
         }
     }
@@ -65,7 +65,7 @@ public class SubscriptionDatabaseAccessObject extends DatabaseAccessObject{
                 return true;
         }
         catch(SQLException e){
-            Logger.logSQL(e);
+            LoggingService.logSQL(e);
             return false;
         }
     }
@@ -78,7 +78,7 @@ public class SubscriptionDatabaseAccessObject extends DatabaseAccessObject{
                 return true;
         }
         catch(SQLException e){
-            Logger.logSQL(e);
+            LoggingService.logSQL(e);
             return false;
         }
     }
@@ -94,7 +94,7 @@ public class SubscriptionDatabaseAccessObject extends DatabaseAccessObject{
                 return subscriptions;
         }
         catch(SQLException e){
-            Logger.logSQL(e);
+            LoggingService.logSQL(e);
             return null;
         }
     }
@@ -110,7 +110,7 @@ public class SubscriptionDatabaseAccessObject extends DatabaseAccessObject{
                 return subscriptions;
         }
         catch(SQLException e){
-            Logger.logSQL(e);
+            LoggingService.logSQL(e);
             return null;
         }
     }
@@ -126,7 +126,7 @@ public class SubscriptionDatabaseAccessObject extends DatabaseAccessObject{
                 return subscriptions;
         }
         catch(SQLException e){
-            Logger.logSQL(e);
+            LoggingService.logSQL(e);
             return null;
         }
     }
@@ -143,7 +143,7 @@ public class SubscriptionDatabaseAccessObject extends DatabaseAccessObject{
                 return subscribers;
         }
         catch(SQLException e){
-            Logger.logSQL(e);
+            LoggingService.logSQL(e);
             return null;
         }
     }
@@ -159,7 +159,7 @@ public class SubscriptionDatabaseAccessObject extends DatabaseAccessObject{
                 return subscribers;
         }
         catch(SQLException e){
-            Logger.logSQL(e);
+            LoggingService.logSQL(e);
             return null;
         }
     }
@@ -175,7 +175,7 @@ public class SubscriptionDatabaseAccessObject extends DatabaseAccessObject{
                 return subscribers;
         }
         catch(SQLException e){
-            Logger.logSQL(e);
+            LoggingService.logSQL(e);
             return null;
         }
     }

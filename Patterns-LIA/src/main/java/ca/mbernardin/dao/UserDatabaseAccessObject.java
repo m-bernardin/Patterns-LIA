@@ -9,8 +9,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import ca.mbernardin.model.Logger;
 import ca.mbernardin.model.User;
+import ca.mbernardin.service.LoggingService;
 
 /**
  * UsersDatabaseObject
@@ -32,7 +32,7 @@ public class UserDatabaseAccessObject extends DatabaseAccessObject{
                 return users;
         }
         catch(SQLException e){
-            Logger.logSQL(e);
+            LoggingService.logSQL(e);
             return null;
         }
     }
@@ -49,7 +49,7 @@ public class UserDatabaseAccessObject extends DatabaseAccessObject{
                 return new User(user_id, full_name, email, age, usertype);
             }
         catch(SQLException e){
-            Logger.logSQL(e);
+            LoggingService.logSQL(e);
             return null;
         }
     }
@@ -61,7 +61,7 @@ public class UserDatabaseAccessObject extends DatabaseAccessObject{
                 return true;
         }
         catch(SQLException e){
-            Logger.logSQL(e);
+            LoggingService.logSQL(e);
             return false;
         }
     }
@@ -77,7 +77,7 @@ public class UserDatabaseAccessObject extends DatabaseAccessObject{
                 return true;
         }
         catch(SQLException e){
-            Logger.logSQL(e);
+            LoggingService.logSQL(e);
             return false;
         }
     }
@@ -92,7 +92,7 @@ public class UserDatabaseAccessObject extends DatabaseAccessObject{
                 else return -1;
         }
         catch(SQLException e){
-            Logger.logSQL(e);
+            LoggingService.logSQL(e);
             return -1;
         }
     }
@@ -105,7 +105,7 @@ public class UserDatabaseAccessObject extends DatabaseAccessObject{
                 return true;
         }
         catch(SQLException e){
-            Logger.logSQL(e);
+            LoggingService.logSQL(e);
             return false;
         }
     }
@@ -118,7 +118,7 @@ public class UserDatabaseAccessObject extends DatabaseAccessObject{
                 return true;
         }
         catch(SQLException e){
-            Logger.logSQL(e);
+            LoggingService.logSQL(e);
             return false;
         }
     }
@@ -131,7 +131,7 @@ public class UserDatabaseAccessObject extends DatabaseAccessObject{
                 return true;
         }
         catch(SQLException e){
-            Logger.logSQL(e);
+            LoggingService.logSQL(e);
             return false;
         }
     }

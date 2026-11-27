@@ -11,8 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import ca.mbernardin.model.Logger;
-
+import ca.mbernardin.service.LoggingService;
 /**
  * DatabaseObject
  */
@@ -31,12 +30,12 @@ public class DatabaseAccessObject {
                 return true;
         }
         catch(IOException e1){
-            Logger.logIo(e1);
+            LoggingService.logIO(e1);
             System.out.println("**"+e1.getMessage());
             return false;
         }
         catch(SQLException e2){
-            Logger.logSQL(e2);
+            LoggingService.logSQL(e2);
             System.out.println("**"+e2.getMessage());
             return false;
         }
