@@ -10,7 +10,7 @@ import java.io.IOException;
  * Logger
  */
 public class LoggingService {
-    private static final File LOG_TARGET=new File("~/Cegep/Patterns/Patterns-LIA/Patterns-LIA/src/main/resources/ca/mbernardin/errorlog.log");
+    private static final File LOG_TARGET=new File("src/main/resources/ca/mbernardin/errorlog.log");
     private static String formatMessage(String message){
         return String.format("[ERROR] @ %s\n%s",LocalDateTime.now(),message);
     }
