@@ -13,7 +13,7 @@
   - [ ] English (Canada) 
   - [ ] French (Canada)
 3. Misc.
-  - [ ] Logger -> Mathieu
+  - [x] LoggingService -> Mathieu
   - [ ] Design Document -> Manal
   - [ ] README.md -> Mathieu
   - [ ] Hasher -> Mathieu
