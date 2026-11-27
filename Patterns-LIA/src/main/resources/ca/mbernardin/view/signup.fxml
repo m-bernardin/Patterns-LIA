@@ -15,10 +15,10 @@
     <Button fx:id="langSwitchBttn" text="EN/FR" onAction="#switchLang"/>
     <!--window title-->
     <Label fx:id="titleLbl"/>
-    <!--first name input-->
-    <HBox fx:id="fNameBox"><children>
-        <Label fx:id="fNameLbl"/>
-        <TextField fx:id="fNameField"/>
+    <!--full name input-->
+    <HBox fx:id="nameBox"><children>
+        <Label fx:id="nameLbl"/>
+        <TextField fx:id="nameField"/>
     </children></HBox>
     <!--email input-->
     <HBox fx:id="emailBox"><children>

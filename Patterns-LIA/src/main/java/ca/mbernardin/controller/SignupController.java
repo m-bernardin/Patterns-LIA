@@ -11,8 +11,8 @@ import javafx.scene.control.TextField;
 public class SignupController {
     @FXML private Button langSwitchBttn;
     @FXML private Label titleLbl;
-    @FXML private Label fNameLbl;
-    @FXML private TextField fNameField;
+    @FXML private Label nameLbl;
+    @FXML private TextField nameField;
     @FXML private Label emailLbl;
     @FXML private TextField emailField;
     @FXML private Label ageLbl;
