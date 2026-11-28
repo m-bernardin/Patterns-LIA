@@ -32,7 +32,10 @@ public class SignupController {
     }
 
     @FXML
-    public void switchLang(){}
+    public void switchLang(){
+        // TODO code to switch Locale on i18n.I18n
+        populateText();
+    }
 
     @FXML
     public void back(){}
@@ -47,6 +50,14 @@ public class SignupController {
         }
     }
 
-    private void populateText(){}
+    private void populateText(){
+        titleLbl.setText(I18n.translate("signup.titleLbl"));
+        nameLbl.setText(I18n.translate("signup.nameLbl"));
+        emailLbl.setText(I18n.translate("signup.emailLbl"));
+        ageLbl.setText(I18n.translate("signup.ageLbl"));
+        psswdLbl.setText(I18n.translate("signup.psswdLbl"));
+        backBttn.setText(I18n.translate("signup.backBttn"));
+        validateBttn.setText(I18n.translate("signup.validateBttn"));
+    }
 
 }
