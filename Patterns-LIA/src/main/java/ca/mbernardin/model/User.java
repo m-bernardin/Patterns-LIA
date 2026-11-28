@@ -16,4 +16,23 @@ public class User {
         this.age=age;
         this.usertype=usertype;
     }
+    public void setUserId(int user_id) {
+        this.user_id = user_id;
+    }
+
+    public void setFullName(String full_name) {
+        this.full_name = full_name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setUsertype(String usertype) {
+        this.usertype = usertype;
+    }
 }
