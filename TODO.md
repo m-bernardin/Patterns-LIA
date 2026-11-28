@@ -17,4 +17,4 @@
   - [x] LoggingService -> Mathieu
   - [ ] Design Document -> Manal
   - [ ] README.md -> Mathieu
-  - [ ] Hasher -> Mathieu
+  - [x] Hasher -> Mathieu
