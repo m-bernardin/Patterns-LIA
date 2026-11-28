@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="557.0" prefWidth="398.0" style="-fx-background-color: #e5e5e5;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mbernardin.controller.MyProfileController">
+   <children>
+      <Label layoutX="32.0" layoutY="26.0" prefHeight="45.0" prefWidth="352.0" text="My Profile">
+         <font>
+            <Font name="Georgia Bold" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="27.0" layoutY="137.0" prefHeight="39.0" prefWidth="352.0" text="Full Name:" textFill="#1b1b1b">
+         <font>
+            <Font name="Georgia" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="fullname_tf" layoutX="19.0" layoutY="176.0" prefHeight="45.0" prefWidth="352.0" style="-fx-background-radius: 90; -fx-background-color: white;">
+         <font>
+            <Font name="Georgia Italic" size="14.0" />
+         </font>
+      </TextField>
+      <Button layoutX="160.0" layoutY="489.0" mnemonicParsing="false" onAction="#backButton" prefHeight="45.0" prefWidth="86.0" style="-fx-background-radius: 90; -fx-background-color: transparent; -fx-border-radius: 90; -fx-border-color: black;" text="← Back">
+         <font>
+            <Font name="Georgia" size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="256.0" layoutY="489.0" mnemonicParsing="false" onAction="#saveChangesButton" prefHeight="45.0" prefWidth="126.0" style="-fx-background-radius: 90; -fx-background-color: black;" text="Save Changes" textFill="WHITE">
+         <font>
+            <Font name="Georgia" size="15.0" />
+         </font>
+      </Button>
+      <Label layoutX="27.0" layoutY="237.0" prefHeight="39.0" prefWidth="352.0" text="Email:" textFill="#1b1b1b">
+         <font>
+            <Font name="Georgia" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="email_tf" layoutX="19.0" layoutY="276.0" prefHeight="45.0" prefWidth="352.0" style="-fx-background-radius: 90; -fx-background-color: white;">
+         <font>
+            <Font name="Georgia Italic" size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="27.0" layoutY="336.0" prefHeight="39.0" prefWidth="352.0" text="Age:" textFill="#1b1b1b">
+         <font>
+            <Font name="Georgia" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="age_tf" layoutX="19.0" layoutY="375.0" prefHeight="45.0" prefWidth="352.0" style="-fx-background-radius: 90; -fx-background-color: white;">
+         <font>
+            <Font name="Georgia Italic" size="14.0" />
+         </font>
+      </TextField>
+      <Label alignment="TOP_LEFT" layoutX="27.0" layoutY="71.0" prefHeight="69.0" prefWidth="352.0" text="This is your current profile information. You can enter new information and save your changes" textFill="#909090" wrapText="true">
+         <font>
+            <Font name="Georgia" size="13.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

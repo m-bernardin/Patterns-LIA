@@ -16,23 +16,4 @@ public class User {
         this.age=age;
         this.usertype=usertype;
     }
-	public int getUserId() {
-        return user_id;
-    }
-
-    public String getFullName() {
-        return full_name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public String getUsertype() {
-        return usertype;
-    }
 }
