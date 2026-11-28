@@ -18,37 +18,38 @@ import java.io.IOException;
 
 public class MyProfileController {
     @FXML
-    private TextField fullname_ft;
+    private TextField fullname_tf;
     @FXML
-    private TextField email_ft;
+    private TextField email_tf;
     @FXML
-    private TextField age_ft;
+    private TextField age_tf;
 
-    private final UserService us = new UserService();
-    private final UserDatabaseAccessObject userdao = new UserDatabaseAccessObject();
+    //private final UserService us = new UserService();
+    //private final UserDatabaseAccessObject userdao = new UserDatabaseAccessObject();
 
     private User currentUser;
 
     @FXML
     public void initialize() {
 
-        // this is something we need to do:
-        // The code doesn't have a way of telling which user is the current user (if i'm not wrong). So I can't display the current user's info for now.
-
-        fullname_ft.setText(UserDatabaseAccessObject.getById(Session.getCurrentUserId()).getFullName());
-        email_ft.setText(UserDatabaseAccessObject.getById(Session.getCurrentUserId()).getEmail());
-        age_ft.setText(UserDatabaseAccessObject.getById(Session.getCurrentUserId()).getAge() + "");
+        User u = UserDatabaseAccessObject.getById(Session.getCurrentUserId());
+        if(u==null) {
+            return;
+        }
+        fullname_tf.setText(u.getFullName());
+        email_tf.setText(u.getEmail());
+        age_tf.setText(u.getAge() + "");
     }
 
     @FXML
     public void backButton(ActionEvent actionEvent) throws IOException {
-        ChangeScenes(actionEvent, "TO_BE_DECIDED", "TO_BE_DECIDED");
+        ChangeScenes(actionEvent, "DESTINATION_TOBEDECIDED", "TITLE_TOBEDECIDED");
     }
     @FXML
     public void saveChangesButton(ActionEvent actionEvent) {
-        UserService.serviceModifyName(fullname_ft.getText());
-        UserService.serviceModifyEmail(email_ft.getText());
-        UserService.serviceModifyAge(age_ft.getText());
+        UserService.serviceModifyName(fullname_tf.getText());
+        UserService.serviceModifyEmail(email_tf.getText());
+        UserService.serviceModifyAge(age_tf.getText());
         initialize();
     }
     @FXML

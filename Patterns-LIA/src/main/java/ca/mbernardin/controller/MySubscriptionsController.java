@@ -49,7 +49,7 @@ public class MySubscriptionsController {
         languageField.getItems().addAll(Locale.ENGLISH, Locale.FRENCH);
         languageField.setValue(Session.getLocale());
 
-        idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        idCol.setCellValueFactory(new PropertyValueFactory<>("conferenceId"));
         conferencesCol.setCellValueFactory(new PropertyValueFactory<>("conference"));
         startDateCol.setCellValueFactory(new PropertyValueFactory<>("startDate"));
         endDateCol.setCellValueFactory(new PropertyValueFactory<>("endDate"));
@@ -73,7 +73,7 @@ public class MySubscriptionsController {
         int userId = Session.getCurrentUserId();
         if(userId < 0) return;
 
-        SubscriptionDatabaseAccessObject.remove(userId, selected.getConferenceId());
+        SubscriptionDatabaseAccessObject.removeFromWaitingList(userId, selected.getConferenceId());
         refreshButton();
     }
 

@@ -38,7 +38,7 @@ public class UserService {
         return email.matches("^[a-zA-Z\\d._-]+@[a-zA-Z\\d._-]+\\.[a-zA-Z]{2,}$");
     }
     public static boolean isRightAge(int age) {
-        return age<18;
+        return age>0;
     }
     public static int numerizeAge(String age) {
         if(age==null || !age.matches("[\\d]*")) return 0;
