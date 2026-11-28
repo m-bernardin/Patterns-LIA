@@ -31,4 +31,13 @@ public class Session {
     public static void setLocale(Locale locale) {
         Session.locale = locale;
     }
+
+    public static void toggleLocale() {
+        if(getLocale() == Locale.FRENCH) {
+            setLocale(Locale.ENGLISH);
+        }
+        else if(getLocale() == Locale.ENGLISH) {
+            setLocale(Locale.FRENCH);
+        }
+    }
 }
