@@ -1,10 +1,11 @@
 # TODO
 1. FXML + Controller + JUnit
   - [ ] Login -> Manal
-  - [ ] Sign up -> Mathieu
+  - [x] Sign up -> Mathieu
+    - this is essentially done, just missing back() which is a whole system we have to figure out
   - [ ] My profile -> Mohammad
   - [ ] Create slash edit conference -> Manal
-  - [ ] Admin panal -> Mathieu
+  - [ ] Admin panel -> Mathieu
   - [ ] My subscriptions -> Mohammad
   - [ ] Participant panel -> Manal
   - [ ] Admin report -> Mathieu
