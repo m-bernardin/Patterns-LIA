@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import ca.mbernardin.model.Logger;
+import ca.mbernardin.service.LoggingService;
 
 /**
  * PasswordDatabaseAccessObject
@@ -25,7 +25,7 @@ public class PasswordDatabaseAccessObject extends DatabaseAccessObject{
 
         }
         catch(SQLException e){
-            Logger.logSQL(e);
+            LoggingService.logSQL(e);
             return false;
         }
     }
@@ -38,7 +38,7 @@ public class PasswordDatabaseAccessObject extends DatabaseAccessObject{
                 return true;
         }
         catch(SQLException e){
-            Logger.logSQL(e);
+            LoggingService.logSQL(e);
             return false;
         }
     }
@@ -51,7 +51,7 @@ public class PasswordDatabaseAccessObject extends DatabaseAccessObject{
                 return true;
         }
         catch(SQLException e){
-            Logger.logSQL(e);
+            LoggingService.logSQL(e);
             return false;
         }
     }
