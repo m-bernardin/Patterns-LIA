@@ -8,6 +8,7 @@ import java.util.Base64;
  * HashingService
  */
 public class HashingService{
+    private HashingService(){}
     public static String hash(String plaintext){
         MessageDigest digest;
         try{
