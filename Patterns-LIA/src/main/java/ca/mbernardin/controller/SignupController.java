@@ -33,7 +33,7 @@ public class SignupController {
 
     @FXML
     public void switchLang(){
-        // TODO code to switch Locale on i18n.I18n
+        Session.toggleLocale();
         populateText();
     }
 
